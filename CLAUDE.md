@@ -13,4 +13,4 @@ Zasady, tak samo jak w `czytnik01`:
 - Na oficjalne repo nic nie trafia bez wyraźnego „wypchnij na oficjalną stronę” od Karola.
 - W tym repo nie ma pliku `CNAME`. Gdyby się pojawił, GitHub zabrałby domenę oficjalnej stronie.
 
-Sklep to jeden plik `index.html`. Podstrony: `#kup`, `#specyfikacja`, `#pytania`, `#historia`, `#dostawa`, `#zwroty`, `#regulamin`, `#prywatnosc`, `#bezpieczenstwo`, `#dziekujemy`. Płatności (Stripe) nie są jeszcze podpięte.
+Sklep to jeden plik `index.html`. Lista zdjęć do zrobienia: `zdjecia.html`. Podstrony: `#kup`, `#specyfikacja`, `#pytania`, `#historia`, `#dostawa`, `#zwroty`, `#regulamin`, `#prywatnosc`, `#bezpieczenstwo`, `#dziekujemy`. Płatności (Stripe) nie są jeszcze podpięte.
