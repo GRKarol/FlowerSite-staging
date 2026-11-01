@@ -154,7 +154,7 @@ body.dark #meadow{visibility:hidden}
 @media (max-width:900px){.gal{position:static}}
 .gal .main{aspect-ratio:16/11;display:grid;place-items:center;background:#fff;border-radius:22px;overflow:hidden}
 .gal .main img{width:100%;height:100%;object-fit:contain;display:block}
-.thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:10px}
+.thumbs{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:10px}
 .thumbs button{aspect-ratio:16/11;border:0;border-radius:12px;overflow:hidden;background:#fff;padding:0;cursor:pointer;opacity:.6;transition:opacity .2s,box-shadow .2s}
 .thumbs button:hover{opacity:.85}
 .thumbs button[aria-pressed="true"]{opacity:1;box-shadow:0 0 0 2px var(--fg)}
@@ -1330,7 +1330,7 @@ var seedsLayer=document.getElementById('seeds'),meadow=document.getElementById('
 })();
 /* ---------- product photos ---------- */
 (function(){
-  var P=[['przod-jasny','Przód, motyw jasny'],['menu','Menu z boku, widać gniazdo karty microSD'],['biblioteka','Biblioteka'],['przod-ciemny','Przód, motyw ciemny'],['tyl','Tył z naklejką']];
+  var P=[['przod-jasny','Przód, motyw jasny'],['tryb-nocny','Przód, motyw nocny'],['przod-ciemny','Przód, motyw ciemny'],['biblioteka','Biblioteka'],['bok-przyciski','Bok z przyciskami i portem USB-C'],['tyl-bok','Tył z głośnikiem, przyciskami i USB-C'],['tyl','Tył z naklejką']];
   var thumbs=document.getElementById('thumbs'),main=document.getElementById('gMain');
   P.forEach(function(p,i){var src='obrazy/'+p[0]+'.webp',b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.setAttribute('aria-label',p[1]);
     var im=document.createElement('img');im.src=src;im.alt='';im.loading='lazy';im.decoding='async';b.appendChild(im);
