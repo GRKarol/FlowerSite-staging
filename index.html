@@ -152,12 +152,12 @@ body.dark #meadow{visibility:hidden}
 @media (max-width:900px){.buy{grid-template-columns:1fr}}
 .gal{min-width:0;position:sticky;top:100px}
 @media (max-width:900px){.gal{position:static}}
-.gal .main{aspect-ratio:16/11;display:grid;place-items:center}
+.gal .main{aspect-ratio:16/11;display:grid;place-items:center;background:#fff;border-radius:22px;overflow:hidden}
 .gal .main img{width:100%;height:100%;object-fit:contain;display:block}
-.thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:8px}
-.thumbs button{aspect-ratio:16/11;border:0;border-bottom:2px solid transparent;background:transparent;padding:0;cursor:pointer;opacity:.55;transition:opacity .2s}
+.thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:10px}
+.thumbs button{aspect-ratio:16/11;border:0;border-radius:12px;overflow:hidden;background:#fff;padding:0;cursor:pointer;opacity:.6;transition:opacity .2s,box-shadow .2s}
 .thumbs button:hover{opacity:.85}
-.thumbs button[aria-pressed="true"]{opacity:1;border-bottom-color:var(--fg)}
+.thumbs button[aria-pressed="true"]{opacity:1;box-shadow:0 0 0 2px var(--fg)}
 .thumbs img{width:100%;height:100%;object-fit:contain;display:block}
 .note-r{font-family:var(--mn);font-size:11.5px;color:var(--fg2);margin-top:10px}
 .box{display:flex;flex-direction:column;gap:26px;min-width:0}
@@ -414,7 +414,6 @@ details.q p+p{margin-top:10px}
     <div class="gal">
       <div class="main"><img id="gMain" alt="Flower" src="data:image/gif;base64,R0lGODlhAQABAAAAACw="></div>
       <div class="thumbs" id="thumbs" role="group" aria-label="Widoki produktu"></div>
-      <p class="note-r">Rendery z modelu 3D. Podmienimy je na zdjęcia bez tła, kadr w kadr.</p>
     </div>
     <div class="box">
       <div class="row">
@@ -1329,23 +1328,16 @@ var seedsLayer=document.getElementById('seeds'),meadow=document.getElementById('
   }
   requestAnimationFrame(tick);
 })();
-/* ---------- renders for the shop ---------- */
-var VIEWS=[{id:'q34',name:'Trzy czwarte',ry:-.55,rx:.38,rz:.04,w:2},{id:'front',name:'Przód',ry:0,rx:0,rz:0,w:9},{id:'topb',name:'Przyciski',ry:.15,rx:.95,rz:0,w:4},{id:'usb',name:'USB-C',ry:-1.3,rx:.2,rz:0,w:0},{id:'sd',name:'Karta microSD',ry:.2,rx:-.9,rz:0,w:12},{id:'back',name:'Tył z głośnikiem',ry:Math.PI-.35,rx:.3,rz:0,w:0}];
-var SHOTS={};
-function snapshots(){
-  if(!ok)return;
-  var W=1100,Hh=756;renderer.setPixelRatio(1);renderer.setSize(W,Hh,false);camera.aspect=W/Hh;
-  var d2=L/.70/(2*Math.tan(THREE.MathUtils.degToRad(camera.fov/2))*camera.aspect);camera.position.set(0,d2*.18,d2);camera.lookAt(0,0,0);camera.updateProjectionMatrix();
-  shadowMat.opacity=1;book.visible=false;
-  texSize(2048);VIEWS.forEach(function(v){drawScreen(v.w,TBY.jasny);screenTex.needsUpdate=true;device.position.set(0,5,0);device.rotation.set(v.rx,v.ry,v.rz);device.scale.setScalar(1);device.updateMatrixWorld();placeShadow(0,5,1);renderer.render(scene,camera);SHOTS[v.id]=canvas.toDataURL('image/png');});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));needScreen=true;
+/* ---------- product photos ---------- */
+(function(){
+  var P=[['przod-jasny','Przód, motyw jasny'],['menu','Menu z boku, widać gniazdo karty microSD'],['biblioteka','Biblioteka'],['przod-ciemny','Przód, motyw ciemny'],['tyl','Tył z naklejką']];
   var thumbs=document.getElementById('thumbs'),main=document.getElementById('gMain');
-  VIEWS.forEach(function(v,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.setAttribute('aria-label','Widok: '+v.name);
-    var im=document.createElement('img');im.src=SHOTS[v.id];im.alt='';b.appendChild(im);
-    b.addEventListener('click',function(){[].forEach.call(thumbs.children,function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');main.src=SHOTS[v.id];main.alt='Flower, widok: '+v.name;});
+  P.forEach(function(p,i){var src='obrazy/'+p[0]+'.webp',b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.setAttribute('aria-label',p[1]);
+    var im=document.createElement('img');im.src=src;im.alt='';im.loading='lazy';im.decoding='async';b.appendChild(im);
+    b.addEventListener('click',function(){[].forEach.call(thumbs.children,function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');main.src=src;main.alt='flower: '+p[1];});
     thumbs.appendChild(b);});
-  main.src=SHOTS.q34;main.alt='Flower, widok: Trzy czwarte';
-}
+  main.src='obrazy/'+P[0][0]+'.webp';main.alt='flower: '+P[0][1];
+})();
 
 /* ---------- theme picker ---------- */
 var tpBtn=document.getElementById('tpBtn'),tpPanel=document.getElementById('tpPanel'),tpGrid=document.getElementById('tpGrid'),tgrid=document.getElementById('tgrid');
@@ -1392,7 +1384,7 @@ function route(){
 window.addEventListener('hashchange',route);
 [].forEach.call(document.querySelectorAll('[data-jump]'),function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.getElementById(a.dataset.jump);if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-100,behavior:reduce?'auto':'smooth'});});});
 
-function start(){route();if(ok){drawScreen(wi);screenTex.needsUpdate=true;snapshots();size();}requestAnimationFrame(frame);}
+function start(){route();if(ok){drawScreen(wi);screenTex.needsUpdate=true;size();}requestAnimationFrame(frame);}
 var fontsReady=(document.fonts&&document.fonts.load)?Promise.all([document.fonts.load('500 160px "JetBrains Mono"'),document.fonts.load('500 34px "JetBrains Mono"')]):Promise.resolve();
 Promise.race([fontsReady,new Promise(function(r){setTimeout(r,2500);})]).then(start,start);
 
