@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F4F1EA">
+<title>flower · pomoc</title>
+<meta name="description" content="Instrukcja, aplikacja, wgrywanie książek i rozwiązywanie problemów z czytnikiem flower.">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --linen:#F4F1EA;--obsidian:#1A1A1A;--azure:#1488D8;--orp:#D2252A;--amber:#B5651D;--green:#2F7A4D;
+  --bg:#F4F1EA;--bg2:#ECE7DC;--card:#FBF9F4;--fg:#1A1A1A;--fg2:#5E5A52;--hair:rgba(26,26,26,.12);--btn-bg:#1A1A1A;--btn-fg:#F4F1EA;--link:#0F6CB0;
+  --screen:#F7F4EC;--screen-fg:#1A1A1A;--shell:#1E8FE0;--shell-d:#126CB0;
+  --fr:'Fraunces',Georgia,serif;--ns:'Newsreader',Georgia,serif;--mn:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --t-body:clamp(17px,.5vw + 15px,19px);--t-h1:clamp(44px,5.4vw + 16px,104px);--t-h2:clamp(32px,2.6vw + 18px,58px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B111C;--bg2:#111A28;--card:#131D2C;--fg:#E9EBE6;--fg2:#A7AFBA;--hair:rgba(233,235,230,.13);--btn-bg:#E9EBE6;--btn-fg:#0B111C;--link:#6CB8F0;--screen:#0E0F12;--screen-fg:#E9EBE6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B111C;--bg2:#111A28;--card:#131D2C;--fg:#E9EBE6;--fg2:#A7AFBA;--hair:rgba(233,235,230,.13);--btn-bg:#E9EBE6;--btn-fg:#0B111C;--link:#6CB8F0;--screen:#0E0F12;--screen-fg:#E9EBE6;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--ns);font-size:var(--t-body);line-height:1.55;transition:background-color .4s,color .4s;overflow-x:hidden}
+h1,h2,h3{font-family:var(--fr);font-weight:340;letter-spacing:-.03em;line-height:1.02;margin:0;font-variation-settings:"opsz" 144}
+h1 em,h2 em{font-style:italic;font-weight:300}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--azure);outline-offset:4px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left,0px))}
+.lbl{font-family:var(--mn);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg2)}
+.mono{font-family:var(--mn);font-size:.86em}
+kbd{font-family:var(--mn);font-size:.82em;background:var(--bg2);border:1px solid var(--hair);border-bottom-width:2px;border-radius:7px;padding:1px 7px;white-space:nowrap}
+
+/* top */
+.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 86%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+.top.sc{border-bottom-color:var(--hair)}
+.top .in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px}
+.wm{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fr);font-size:24px;letter-spacing:-.03em}
+.wm img{width:38px;height:38px}
+:root[data-theme="dark"] .wm img{filter:invert(1)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .wm img{filter:invert(1)}}
+.wm small{font-family:var(--mn);font-size:12px;letter-spacing:.06em;color:var(--fg2);border-left:1px solid var(--hair);padding-left:10px;margin-left:2px;text-transform:uppercase}
+.tnav{display:flex;align-items:center;gap:8px}
+.tnav a.shop{font-family:var(--mn);font-size:13px;text-decoration:none;background:var(--btn-bg);color:var(--btn-fg);padding:10px 15px;border-radius:10px}
+.ib{width:40px;height:40px;border-radius:12px;border:1px solid var(--hair);background:transparent;color:var(--fg);display:grid;place-items:center;cursor:pointer}
+.ib svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;background:var(--azure);width:100%;transform-origin:left;transform:scaleX(0)}
+
+/* hero */
+.hero{padding-block:clamp(48px,9vh,110px) clamp(36px,6vh,70px)}
+.hero .g{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:center}
+.hero h1{font-size:var(--t-h1);margin-top:16px}
+.hero .lead{font-size:clamp(19px,.8vw + 15px,24px);color:var(--fg2);margin-top:22px;max-width:30ch}
+.search{position:relative;margin-top:34px;max-width:520px}
+.search input{width:100%;font:inherit;font-size:18px;color:var(--fg);background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:16px 18px 16px 50px;outline:none;transition:border-color .2s,box-shadow .2s}
+.search input:focus{border-color:var(--azure);box-shadow:0 0 0 4px color-mix(in srgb,var(--azure) 18%,transparent)}
+.search>svg{position:absolute;left:17px;top:50%;width:20px;height:20px;transform:translateY(-50%);fill:none;stroke:var(--fg2);stroke-width:1.7;stroke-linecap:round}
+.res{position:absolute;left:0;right:0;top:calc(100% + 8px);background:var(--card);border:1px solid var(--hair);border-radius:16px;box-shadow:0 24px 60px -24px rgba(0,0,0,.35);padding:6px;z-index:20;max-height:360px;overflow:auto}
+.res a{display:block;padding:11px 13px;border-radius:11px;text-decoration:none}
+.res a:hover,.res a.on{background:var(--bg2)}
+.res a span{display:block;font-family:var(--mn);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--fg2)}
+.res p{padding:12px 13px;color:var(--fg2)}
+
+/* device mock (front) */
+.dev{position:relative;width:min(100%,560px);margin-inline:auto;aspect-ratio:100/35;filter:drop-shadow(0 30px 40px rgba(20,40,70,.22))}
+.dev .shell{position:absolute;inset:0;border-radius:9% / 26%;background:linear-gradient(180deg,#2C9CEC,var(--shell) 40%,var(--shell-d));box-shadow:inset 0 2px 0 rgba(255,255,255,.35),inset 0 -3px 0 rgba(0,0,0,.18)}
+.dev .glass{position:absolute;left:4.2%;right:4.2%;top:12%;bottom:12%;background:#0b0b0d;border-radius:4% / 13%;padding:2.4% 3%}
+.dev .scr{position:relative;width:100%;height:100%;background:var(--screen);border-radius:2px;overflow:hidden;display:grid;place-items:center;color:var(--screen-fg)}
+.dev .btns{position:absolute;top:-3.6%;right:9%;display:flex;gap:2.2%;width:24%;justify-content:flex-end}
+.dev .btns i{display:block;width:26%;aspect-ratio:3/1;background:#1773BE;border-radius:4px 4px 0 0}
+.word{font-family:var(--mn);font-size:clamp(20px,3.4vw,40px);letter-spacing:.01em;white-space:pre;position:relative}
+.word b{color:var(--orp);font-weight:500}
+.guide{position:absolute;left:50%;width:1.5px;height:12%;background:var(--orp);opacity:.65}
+.guide.t{top:16%}.guide.b{bottom:16%}
+.scr .meta{position:absolute;right:3%;bottom:6%;font-family:var(--mn);font-size:clamp(7px,1vw,10px);opacity:.5}
+.scr .wpm{position:absolute;left:3%;bottom:6%;font-family:var(--mn);font-size:clamp(7px,1vw,10px);opacity:.5}
+.dctl{display:flex;align-items:center;gap:16px;justify-content:center;margin-top:26px;flex-wrap:wrap}
+.dctl input[type=range]{width:min(260px,60vw);accent-color:var(--azure)}
+.dctl output{font-family:var(--mn);font-size:13px;color:var(--fg2);min-width:11ch}
+.pbtn{font-family:var(--mn);font-size:13px;border:1px solid var(--hair);background:var(--card);color:var(--fg);border-radius:10px;padding:9px 14px;cursor:pointer}
+
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding-bottom:clamp(40px,8vh,90px)}
+.tile{position:relative;display:flex;flex-direction:column;gap:30px;justify-content:space-between;min-height:150px;padding:20px;border-radius:20px;background:var(--card);border:1px solid var(--hair);text-decoration:none;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.tile:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--azure) 45%,var(--hair))}
+.tile svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.tile b{font-family:var(--fr);font-weight:400;font-size:22px;letter-spacing:-.02em;line-height:1.1}
+.tile span{display:block;font-size:15px;color:var(--fg2);margin-top:4px}
+.tile .n{position:absolute;right:18px;top:18px;font-family:var(--mn);font-size:12px;color:var(--fg2)}
+
+/* layout with side nav */
+.doc{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(24px,5vw,80px);padding-bottom:12vh}
+.side{position:sticky;top:96px;align-self:start;display:flex;flex-direction:column;gap:2px;font-size:16px}
+.side a{text-decoration:none;color:var(--fg2);padding:7px 12px;border-radius:10px;position:relative;transition:color .2s,background-color .2s}
+.side a:hover{color:var(--fg)}
+.side a.on{color:var(--fg);background:var(--bg2)}
+.chips{display:none}
+.sec{padding-block:clamp(56px,10vh,110px) 0;border-top:1px solid var(--hair)}
+.sec:first-child{border-top:0;padding-top:0}
+.sec>header{display:grid;gap:14px;margin-bottom:36px;max-width:720px}
+.sec>header p{color:var(--fg2);font-size:clamp(18px,.6vw + 15px,21px)}
+.sec h2{font-size:var(--t-h2)}
+.sec h3{font-size:clamp(22px,1vw + 16px,28px);letter-spacing:-.02em}
+.note{display:flex;gap:14px;align-items:flex-start;background:var(--bg2);border-radius:16px;padding:16px 18px;margin-top:22px;font-size:16.5px}
+.note svg{flex:none;width:22px;height:22px;margin-top:2px;fill:none;stroke:var(--amber);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--mn);font-size:14px;text-decoration:none;background:var(--btn-bg);color:var(--btn-fg);padding:13px 18px;border-radius:12px;margin-top:20px}
+.cta svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* stepper */
+.steps{position:relative;display:grid;gap:0;counter-reset:s}
+.steps::before{content:"";position:absolute;left:21px;top:22px;bottom:22px;width:2px;background:var(--hair)}
+.steps .fillv{position:absolute;left:21px;top:22px;width:2px;background:var(--azure);height:0;transition:height .15s linear}
+.step{position:relative;display:grid;grid-template-columns:44px 1fr;gap:20px;padding-bottom:30px}
+.step .dot{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:2px solid var(--hair);font-family:var(--mn);font-size:15px;position:relative;z-index:1;transition:border-color .4s,background-color .4s,color .4s}
+.step.lit .dot{border-color:var(--azure);background:var(--azure);color:#fff}
+.step h3{margin-top:8px}
+.step p{color:var(--fg2);margin-top:8px;max-width:60ch}
+
+/* buttons explorer */
+.bx{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px);align-items:center}
+.top3d{position:relative;width:100%;max-width:520px;margin-inline:auto}
+.top3d svg{width:100%;height:auto;display:block;overflow:visible}
+.hb{cursor:pointer;outline:none}
+.hb rect.k{fill:#1773BE;transition:transform .18s,fill .25s;transform-box:fill-box;transform-origin:center bottom}
+.hb:hover rect.k,.hb.on rect.k{fill:#0B4F8C}
+.hb.on rect.k{transform:scaleY(.6)}
+.hb text{font-family:var(--mn);font-size:11px;fill:var(--fg2);transition:fill .2s}
+.hb.on text{fill:var(--fg)}
+.hb .ring{fill:none;stroke:var(--azure);stroke-width:2;opacity:0}
+.hb.on .ring{animation:ring 1.6s ease-out infinite}
+@keyframes ring{0%{opacity:.8;r:8}100%{opacity:0;r:26}}
+.bpanel{min-height:260px}
+.btabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.btabs button{font:inherit;font-family:var(--mn);font-size:13px;border:1px solid var(--hair);background:transparent;color:var(--fg2);border-radius:999px;padding:8px 14px;cursor:pointer;transition:all .2s}
+.btabs button[aria-selected="true"]{background:var(--btn-bg);color:var(--btn-fg);border-color:transparent}
+.act{display:grid;gap:12px}
+.act div{display:grid;grid-template-columns:118px 1fr;gap:14px;padding:14px 16px;background:var(--card);border:1px solid var(--hair);border-radius:14px;animation:fin .45s cubic-bezier(.2,.8,.2,1) both}
+.act div:nth-child(2){animation-delay:.06s}.act div:nth-child(3){animation-delay:.12s}
+.act span{font-family:var(--mn);font-size:12.5px;color:var(--fg2);padding-top:3px}
+@keyframes fin{from{opacity:0;transform:translateY(10px)}}
+
+/* gestures */
+.gest{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:44px}
+.g1{background:var(--card);border:1px solid var(--hair);border-radius:18px;padding:18px;display:grid;gap:12px}
+.g1 .stage{position:relative;height:84px;border-radius:12px;background:var(--screen);overflow:hidden;display:grid;place-items:center;font-family:var(--mn);font-size:20px;color:var(--screen-fg)}
+.g1 .stage b{color:var(--orp);font-weight:500}
+.g1 .f{position:absolute;width:26px;height:26px;border-radius:50%;background:rgba(20,136,216,.35);border:2px solid rgba(20,136,216,.8);left:50%;top:50%;margin:-13px 0 0 -13px}
+.g1 h4{margin:0;font-family:var(--fr);font-weight:400;font-size:20px;letter-spacing:-.02em}
+.g1 p{font-size:15.5px;color:var(--fg2)}
+.f.tap{animation:tap 2.2s ease-in-out infinite}
+@keyframes tap{0%,100%{transform:scale(.6);opacity:0}20%{transform:scale(1);opacity:1}35%{transform:scale(.8);opacity:1}55%{opacity:0}}
+.f.hold{animation:hold 3s ease-in-out infinite}
+@keyframes hold{0%{transform:scale(.6);opacity:0}12%{transform:scale(1);opacity:1}80%{transform:scale(1.15);opacity:1;box-shadow:0 0 0 10px rgba(20,136,216,.12)}100%{opacity:0}}
+.f.swipe{animation:swipe 2.4s cubic-bezier(.5,0,.3,1) infinite}
+@keyframes swipe{0%{transform:translateX(50px);opacity:0}15%{opacity:1}65%{transform:translateX(-60px);opacity:1}80%,100%{transform:translateX(-60px);opacity:0}}
+.f.topbar{top:16%;animation:tap 2.2s ease-in-out infinite}
+.f.corner{left:86%;top:80%;animation:tap 2.2s ease-in-out infinite .4s}
+.f.back{left:12%;top:80%;animation:tap 2.2s ease-in-out infinite .2s}
+.g1 .bar{position:absolute;top:0;left:0;right:0;height:18%;background:color-mix(in srgb,var(--screen-fg) 8%,transparent)}
+.g1 .ft{position:absolute;bottom:6%;right:6%;font-size:9px;opacity:.55}
+.g1 .bk{position:absolute;bottom:6%;left:6%;font-size:11px;opacity:.7}
+
+/* tabs (menu, books, app) */
+.tabs{display:flex;gap:4px;padding:4px;background:var(--bg2);border-radius:14px;width:max-content;max-width:100%;overflow-x:auto;scrollbar-width:none;margin-bottom:26px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{font:inherit;font-size:16px;border:0;background:transparent;color:var(--fg2);padding:10px 16px;border-radius:11px;cursor:pointer;white-space:nowrap;transition:background-color .25s,color .25s}
+.tabs button[aria-selected="true"]{background:var(--card);color:var(--fg);box-shadow:0 1px 0 var(--hair),0 6px 16px -10px rgba(0,0,0,.35)}
+.tp{animation:fin .45s cubic-bezier(.2,.8,.2,1) both}
+.tp[hidden]{display:none}
+.list{display:grid;gap:10px;margin-top:6px;padding:0;list-style:none;counter-reset:l}
+.list li{position:relative;padding:14px 16px 14px 56px;background:var(--card);border:1px solid var(--hair);border-radius:14px;counter-increment:l}
+.list li::before{content:counter(l);position:absolute;left:16px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--bg2);display:grid;place-items:center;font-family:var(--mn);font-size:12.5px}
+.list.plain li{padding-left:16px}.list.plain li::before{display:none}
+.list b{font-weight:500}
+
+/* walkthrough with phone */
+.walk{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(24px,4vw,56px);align-items:start}
+.walk .ws{display:grid;gap:10px}
+.walk .w{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:16px;border-radius:16px;border:1px solid transparent;cursor:pointer;transition:background-color .3s,border-color .3s,opacity .3s;opacity:.55}
+.walk .w.on{background:var(--card);border-color:var(--hair);opacity:1}
+.walk .w i{font-style:normal;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--mn);font-size:13px;border:1.5px solid var(--hair)}
+.walk .w.on i{background:var(--azure);border-color:var(--azure);color:#fff}
+.walk .w>div>b{font-family:var(--fr);font-weight:400;font-size:20px;letter-spacing:-.02em;display:block;line-height:1.2}
+.walk .w p{font-size:16px;color:var(--fg2);margin-top:6px}
+.phone{position:sticky;top:110px;width:100%;max-width:300px;aspect-ratio:9/19;border-radius:44px;background:#0d0e10;padding:11px;box-shadow:0 40px 70px -30px rgba(10,20,40,.45),inset 0 0 0 2px #2a2c31;margin-inline:auto}
+.phone .sc{position:relative;width:100%;height:100%;border-radius:34px;overflow:hidden;background:#F6F6F4;color:#111;font-family:-apple-system,system-ui,sans-serif;font-size:13px}
+.phone .notch{position:absolute;top:8px;left:50%;width:84px;height:24px;margin-left:-42px;background:#0d0e10;border-radius:14px;z-index:3}
+.ps{position:absolute;inset:0;padding:46px 16px 16px;opacity:0;transform:translateY(14px) scale(.98);transition:opacity .45s,transform .45s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.ps.on{opacity:1;transform:none}
+.ps h5{margin:0 0 12px;font-size:20px;font-weight:600;letter-spacing:-.02em}
+.ps .row{display:flex;align-items:center;justify-content:space-between;background:#fff;padding:11px 12px;border-bottom:1px solid #eee;font-size:13.5px}
+.ps .row:first-of-type{border-radius:11px 11px 0 0}.ps .row:last-of-type{border-radius:0 0 11px 11px;border-bottom:0}
+.ps .row.hl{background:#E8F3FC;font-weight:600}
+.ps .ok{color:#1488D8;font-weight:600}
+.ps .url{background:#E9E9EC;border-radius:11px;padding:9px 12px;font-size:13px;text-align:center;margin-bottom:14px}
+.ps .card{background:#fff;border-radius:14px;padding:14px;margin-bottom:10px;box-shadow:0 1px 0 #e6e6e6}
+.ps .bt{display:block;text-align:center;background:#1A1A1A;color:#F4F1EA;border-radius:11px;padding:11px;font-weight:600;margin-top:10px}
+.ps .bt.bl{background:#1488D8;color:#fff}
+.ps .qr{width:150px;height:150px;margin:14px auto;background:
+  conic-gradient(from 90deg at 22% 22%,#111 25%,transparent 0) 0 0/40px 40px,#fff;border:10px solid #fff;outline:2px solid #111;border-radius:6px;position:relative}
+.ps .scanl{position:absolute;left:8%;right:8%;height:2px;background:#1488D8;box-shadow:0 0 12px #1488D8;animation:scan 2s ease-in-out infinite alternate}
+@keyframes scan{from{top:12%}to{top:86%}}
+.ps .sheet{position:absolute;left:8px;right:8px;bottom:8px;background:#fff;border-radius:16px;padding:14px;box-shadow:0 -10px 30px rgba(0,0,0,.12)}
+.ps .ico{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px;text-align:center;font-size:10.5px}
+.ps .ico span{display:block;width:42px;height:42px;margin:0 auto 4px;border-radius:11px;background:#EDEDF0}
+.ps .ico .me span{background:#1488D8}
+.ps .home{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 10px;margin-top:10px;text-align:center;font-size:10.5px}
+.ps .home span{display:block;width:48px;height:48px;margin:0 auto 5px;border-radius:13px;background:#DADBE0}
+.ps .home .me span{background:#F4F1EA url(../logo-seed.png) center/70% no-repeat;box-shadow:0 0 0 2px #1488D8;animation:pop .9s cubic-bezier(.3,1.6,.5,1) both .2s}
+@keyframes pop{from{transform:scale(.3);opacity:0}}
+.ps .prog2{height:6px;border-radius:3px;background:#E5E5E8;overflow:hidden;margin-top:12px}
+.ps .prog2 i{display:block;height:100%;width:0;background:#1488D8;animation:load 2.4s ease-in-out infinite}
+@keyframes load{to{width:100%}}
+
+/* videos */
+.vids{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.vid{position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:linear-gradient(160deg,var(--bg2),var(--card));border:1px solid var(--hair);display:flex;flex-direction:column;justify-content:flex-end;padding:16px}
+.vid video,.vid iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.vid .pl{position:absolute;left:50%;top:42%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;border:1.5px solid var(--hair);display:grid;place-items:center;color:var(--fg2)}
+.vid .pl svg{width:20px;height:20px;fill:currentColor;margin-left:3px}
+.vid b{font-family:var(--fr);font-weight:400;font-size:19px;letter-spacing:-.02em;line-height:1.15;position:relative}
+.vid span{font-size:14px;color:var(--fg2);position:relative;margin-top:4px}
+.vid em{position:absolute;top:14px;left:14px;font-style:normal;font-family:var(--mn);font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--bg);border:1px solid var(--hair);border-radius:999px;padding:4px 9px;color:var(--fg2)}
+
+/* battery */
+.bat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.bc{background:var(--card);border:1px solid var(--hair);border-radius:18px;padding:20px}
+.bc .big{font-family:var(--fr);font-size:46px;letter-spacing:-.04em;line-height:1}
+.bc p{color:var(--fg2);font-size:16px;margin-top:10px}
+.cell{position:relative;width:64px;height:30px;border:2px solid currentColor;border-radius:7px;margin-bottom:16px}
+.cell::after{content:"";position:absolute;right:-7px;top:8px;width:4px;height:10px;border-radius:0 3px 3px 0;background:currentColor}
+.cell i{position:absolute;left:3px;top:3px;bottom:3px;border-radius:3px;background:var(--green);animation:chg 3s ease-in-out infinite}
+@keyframes chg{from{width:8%}to{width:calc(100% - 6px)}}
+.cell svg{position:absolute;inset:0;margin:auto;width:16px;height:16px;fill:#fff}
+
+/* faq */
+.faq{display:grid;gap:10px}
+.qa{background:var(--card);border:1px solid var(--hair);border-radius:16px;overflow:hidden}
+.qa summary{list-style:none;cursor:pointer;padding:18px 54px 18px 20px;position:relative;font-family:var(--fr);font-size:20px;letter-spacing:-.015em;line-height:1.25}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"";position:absolute;right:22px;top:50%;width:11px;height:11px;border-right:1.6px solid var(--fg2);border-bottom:1.6px solid var(--fg2);transform:translateY(-70%) rotate(45deg);transition:transform .3s}
+.qa[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+.qa .a{padding:0 20px 20px;color:var(--fg2);display:grid;gap:10px}
+.qa .a ol,.qa .a ul{margin:0;padding-left:20px}
+.qa.hide{display:none}
+.fsearch{display:flex;gap:10px;align-items:center;margin-bottom:18px}
+.fsearch input{flex:1;font:inherit;font-size:17px;color:var(--fg);background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:12px 14px;outline:none}
+.fsearch input:focus{border-color:var(--azure)}
+.empty{color:var(--fg2);padding:10px 2px}
+
+.contact{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;background:var(--obsidian);color:#E9EBE6;border-radius:26px;padding:clamp(26px,4vw,48px);margin-top:12px}
+.contact h2{font-size:clamp(30px,2.4vw + 16px,48px)}
+.contact p{color:#A7AFBA;margin-top:12px}
+.contact a.mail{display:inline-block;font-family:var(--mn);font-size:15px;color:var(--obsidian);background:#F4F1EA;padding:14px 18px;border-radius:12px;text-decoration:none}
+.contact ul{margin:14px 0 0;padding-left:18px;color:#A7AFBA;font-size:16px}
+
+/* footer */
+.foot{background:#0B111C;color:#E9EBE6;margin-top:10vh}
+.foot .in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:26px;padding-block:8vh 5vh}
+.foot a{color:#A7AFBA;text-decoration:none}.foot a:hover{color:#E9EBE6}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:16px}
+.foot h4{margin:0 0 12px;font-family:var(--mn);font-size:12px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:#A7AFBA}
+.soc{display:flex;gap:6px}
+.soc a{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#E9EBE6;opacity:.75}
+.soc a:hover{opacity:1;background:rgba(233,235,230,.08)}
+.soc svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.soc svg .d{fill:currentColor;stroke:none}
+.foot .legal{border-top:1px solid rgba(233,235,230,.12);padding-block:18px 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mn);font-size:12.5px;color:#A7AFBA}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .vids{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gest{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:860px){
+  .hero .g{grid-template-columns:minmax(0,1fr)}
+  .doc{grid-template-columns:minmax(0,1fr)}
+  .side{display:none}
+  .chips{display:flex;gap:6px;overflow-x:auto;position:sticky;top:64px;z-index:30;background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:10px max(20px,env(safe-area-inset-left,0px));margin-inline:calc(-1 * max(20px,env(safe-area-inset-left,0px)));scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chips a{flex:none;font-family:var(--mn);font-size:12.5px;text-decoration:none;color:var(--fg2);border:1px solid var(--hair);border-radius:999px;padding:7px 12px;transition:all .2s}
+  .chips a.on{background:var(--btn-bg);color:var(--btn-fg);border-color:transparent}
+  .bx{grid-template-columns:minmax(0,1fr)}
+  .walk{grid-template-columns:minmax(0,1fr)}
+  .phone{position:relative;top:0;max-width:250px;order:-1}
+  .bat{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .act div{grid-template-columns:1fr;gap:4px}
+}
+@media (max-width:520px){
+  .gest{grid-template-columns:1fr}
+  .wm small{display:none}
+  .tiles .tile{min-height:128px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap in">
+    <a class="wm" href="../"><img src="../logo-seed.png" alt="" width="38" height="38">flower<small>Pomoc</small></a>
+    <div class="tnav">
+      <button class="ib" id="themeBtn" type="button" aria-label="Zmień jasny lub ciemny wygląd" title="Jasny / ciemny"><svg viewBox="0 0 24 24"><path d="M21 13.2A8.5 8.5 0 1 1 10.8 3a6.6 6.6 0 0 0 10.2 10.2z"/></svg></button>
+      <a class="shop" href="../#start">Sklep</a>
+    </div>
+  </div>
+  <div class="prog" id="prog"></div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap g">
+    <div class="rv">
+      <p class="lbl">Masz już swojego flowera</p>
+      <h1>Pierwsze słowo <em>za pięć minut.</em></h1>
+      <p class="lead">Instrukcja, aplikacja, wgrywanie książek i co zrobić, gdy coś nie działa. Wszystko w jednym miejscu.</p>
+      <div class="search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>
+        <input id="q" type="search" placeholder="Czego szukasz? np. Wi-Fi, iPhone, bateria" autocomplete="off" aria-label="Szukaj w pomocy" aria-controls="res">
+        <div class="res" id="res" hidden></div>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="dev" aria-label="Podgląd czytania słowo po słowie" role="img">
+        <div class="btns"><i></i><i></i><i></i></div>
+        <div class="shell"></div>
+        <div class="glass"><div class="scr"><span class="guide t"></span><span class="word" id="demoWord">Litwo!</span><span class="guide b"></span><span class="wpm" id="demoWpm">300 sł./min</span><span class="meta" id="demoPct">0%</span></div></div>
+      </div>
+      <div class="dctl">
+        <button class="pbtn" id="demoPlay" type="button" aria-pressed="true">Pauza</button>
+        <input type="range" id="demoSpeed" min="100" max="700" step="25" value="300" aria-label="Tempo czytania w słowach na minutę">
+        <output id="demoOut" for="demoSpeed">300 słów/min</output>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="tiles">
+    <a class="tile rv" href="#start"><span class="n">01</span><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg><div><b>Pierwsze kroki</b><span>ładowanie i kreator</span></div></a>
+    <a class="tile rv" href="#przyciski"><span class="n">02</span><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="10" rx="3"/><path d="M14 8V6h2v2M17.5 8V6h2v2"/></svg><div><b>Przyciski i gesty</b><span>co robi każdy przycisk</span></div></a>
+    <a class="tile rv" href="#ustawienia"><span class="n">03</span><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg><div><b>Konfiguracja</b><span>tempo, motyw, czcionki</span></div></a>
+    <a class="tile rv" href="#ksiazki"><span class="n">04</span><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg><div><b>Wgrywanie książek</b><span>telefon, kabel, karta</span></div></a>
+    <a class="tile rv" href="#android"><span class="n">05</span><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg><div><b>Aplikacja Android</b><span>instalacja krok po kroku</span></div></a>
+    <a class="tile rv" href="#iphone"><span class="n">06</span><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10 4.5h4"/></svg><div><b>iPhone</b><span>przez przeglądarkę</span></div></a>
+    <a class="tile rv" href="#wideo"><span class="n">07</span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9v6l5-3z"/></svg><div><b>Poradniki wideo</b><span>krótkie filmy</span></div></a>
+    <a class="tile rv" href="#problemy"><span class="n">08</span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.6M12 16.8v.2"/></svg><div><b>Coś nie działa</b><span>szybkie rozwiązania</span></div></a>
+  </div>
+</section>
+
+<div class="wrap doc">
+  <nav class="side" id="side" aria-label="Spis treści">
+    <a href="#start">Pierwsze kroki</a><a href="#przyciski">Przyciski i gesty</a><a href="#menu">Menu</a><a href="#ustawienia">Konfiguracja</a><a href="#ksiazki">Wgrywanie książek</a><a href="#aplikacja">Aplikacja</a><a href="#ladowanie">Ładowanie</a><a href="#aktualizacje">Aktualizacje</a><a href="#wideo">Poradniki wideo</a><a href="#problemy">Coś nie działa</a><a href="#kontakt">Kontakt</a>
+  </nav>
+  <div>
+    <nav class="chips" id="chips" aria-label="Spis treści"></nav>
+
+    <!-- 1 -->
+    <section class="sec" id="start">
+      <header class="rv"><p class="lbl">01 · Pierwsze kroki</p><h2>Od pudełka <em>do pierwszej strony.</em></h2><p>W pudełku jest flower z kartą microSD w środku, kabel USB-C i instrukcja. Reszta to cztery kroki.</p></header>
+      <div class="steps" id="steps"><span class="fillv" id="stepsFill"></span>
+        <div class="step rv"><span class="dot">1</span><div><h3>Naładuj</h3><p>Podłącz kabel USB-C z pudełka do zwykłej ładowarki 5 V, na przykład tej od telefonu. Po kilku sekundach przy baterii pojawi się zielona błyskawica.</p></div></div>
+        <div class="step rv"><span class="dot">2</span><div><h3>Włącz</h3><p>Naciśnij środkowy przycisk na górnej krawędzi. Wyłączasz go tak samo, tylko przytrzymujesz przez około dwie sekundy.</p></div></div>
+        <div class="step rv"><span class="dot">3</span><div><h3>Przejdź kreator</h3><p>Przy pierwszym włączeniu flower sam prowadzi cię przez ustawienia: język, karta, Wi-Fi, wygląd menu, motyw i czcionka, tryb czytania, a na końcu połączenie z telefonem. Jeśli pomylisz się na którymś kroku, środkowy przycisk cofa o jeden.</p></div></div>
+        <div class="step rv"><span class="dot">4</span><div><h3>Wybierz pierwszą książkę</h3><p>Na koniec flower pyta „Co dziś czytamy?” i proponuje sześć darmowych tytułów w twoim języku. Potem pokazuje krótki samouczek. Możesz go obejrzeć jeszcze raz w zakładce Urządzenie.</p></div></div>
+      </div>
+      <div class="note rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.1"/></svg><p>Wi-Fi w kreatorze da się pominąć, ale wtedy flower nie pobierze czcionek ani książek startowych. Pierwsze pobieranie trwa około 10 minut, więc dobrze zrobić to od razu. Czytnik łączy się tylko z sieciami 2,4 GHz.</p></div>
+    </section>
+
+    <!-- 2 -->
+    <section class="sec" id="przyciski">
+      <header class="rv"><p class="lbl">02 · Przyciski i gesty</p><h2>Trzy przyciski. <em>Reszta palcem.</em></h2><p>Przyciski są na górnej krawędzi, po prawej. Stuknij w któryś na rysunku, żeby zobaczyć, co robi.</p></header>
+      <div class="bx rv">
+        <div class="top3d">
+          <svg viewBox="0 0 400 190" role="group" aria-label="Górna krawędź czytnika z trzema przyciskami">
+            <defs><linearGradient id="sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2C9CEC"/><stop offset="1" stop-color="#126CB0"/></linearGradient></defs>
+            <rect x="10" y="70" width="380" height="110" rx="26" fill="url(#sh)"/>
+            <rect x="26" y="84" width="348" height="82" rx="10" fill="#0b0b0d"/>
+            <rect x="34" y="92" width="332" height="66" rx="3" fill="var(--screen)"/>
+            <text x="200" y="133" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="22" fill="var(--screen-fg)">Oj<tspan fill="#D2252A">c</tspan>zyzno</text>
+            <circle cx="190" cy="76" r="1.6" fill="#0d4f86"/><circle cx="210" cy="76" r="1.6" fill="#0d4f86"/>
+            <g class="hb" data-b="reset" tabindex="0" role="button" aria-label="Reset"><circle class="ring" cx="262" cy="64" r="8"/><rect class="k" x="248" y="56" width="28" height="15" rx="4"/><text x="262" y="40" text-anchor="middle">Reset</text></g>
+            <g class="hb on" data-b="pwr" tabindex="0" role="button" aria-label="Zasilanie"><circle class="ring" cx="298" cy="64" r="8"/><rect class="k" x="284" y="56" width="28" height="15" rx="4"/><text x="298" y="22" text-anchor="middle">Zasilanie</text></g>
+            <g class="hb" data-b="boot" tabindex="0" role="button" aria-label="Ekran"><circle class="ring" cx="334" cy="64" r="8"/><rect class="k" x="320" y="56" width="28" height="15" rx="4"/><text x="334" y="40" text-anchor="middle">Ekran</text></g>
+          </svg>
+        </div>
+        <div class="bpanel">
+          <div class="btabs" role="tablist" aria-label="Przyciski">
+            <button role="tab" data-b="reset" aria-selected="false">Reset</button>
+            <button role="tab" data-b="pwr" aria-selected="true">Zasilanie</button>
+            <button role="tab" data-b="boot" aria-selected="false">Ekran</button>
+            <button role="tab" data-b="both" aria-selected="false">Zasilanie + Ekran</button>
+          </div>
+          <div class="act" id="act" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="gest">
+        <div class="g1 rv"><div class="stage">Oj<b>c</b>zyzno<span class="f tap"></span></div><h4>Stuknij</h4><p>Pauza albo dalej.</p></div>
+        <div class="g1 rv"><div class="stage">mo<b>j</b>a!<span class="f hold"></span></div><h4>Przytrzymaj palec</h4><p>Czyta, dopóki trzymasz. Puszczasz i stoi.</p></div>
+        <div class="g1 rv"><div class="stage">Ty<span class="f swipe"></span></div><h4>Przesuń w bok</h4><p>Cofasz się albo idziesz naprzód po słowach.</p></div>
+        <div class="g1 rv"><div class="stage"><span class="bar"></span>jesteś<span class="f topbar"></span></div><h4>Górny pasek</h4><p>Skok do procentu, strony albo rozdziału.</p></div>
+        <div class="g1 rv"><div class="stage"><span class="bk">«</span>jak<span class="f back"></span></div><h4>Przycisk «</h4><p>Wraca na początek zdania.</p></div>
+        <div class="g1 rv"><div class="stage"><span class="ft">42% · 1 h 10 min</span>zdrowie<span class="f corner"></span></div><h4>Róg stopki</h4><p>Zmienia, co pokazuje stopka: procent albo czas do końca.</p></div>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="sec" id="menu">
+      <header class="rv"><p class="lbl">03 · Menu</p><h2>Cztery zakładki.</h2><p>Menu otwierasz środkowym przyciskiem z ekranu przed czytaniem. Przy każdej opcji jest znak „?”, który tłumaczy, co ona zmienia.</p></header>
+      <div class="rv">
+        <div class="tabs" role="tablist" data-tabs="m">
+          <button role="tab" aria-selected="true" data-t="m1">Czytaj</button><button role="tab" aria-selected="false" data-t="m2">Ustawienia</button><button role="tab" aria-selected="false" data-t="m3">Motywy</button><button role="tab" aria-selected="false" data-t="m4">Urządzenie</button>
+        </div>
+        <div class="tp" id="m1"><ul class="list plain"><li>Twoje książki i artykuły. Wybierasz tytuł i flower zaczyna od miejsca, w którym skończyłeś.</li><li>Przed czytaniem masz pod ręką rozdziały, zakładkę, tempo i przycisk „Idź do”.</li></ul></div>
+        <div class="tp" id="m2" hidden><ul class="list plain"><li><b>Tempo</b> i przerwy na przecinkach, kropkach i długich słowach.</li><li><b>Tryb</b>: słowo po słowie albo przewijany tekst.</li><li><b>Jasność</b>, wygaszacz ekranu, wygląd baterii i stopki.</li></ul></div>
+        <div class="tp" id="m3" hidden><ul class="list plain"><li>Motyw czytania: Jasny, Ciemny i Nocny, do tego kolorowe palety.</li><li>Czcionka czytania i czcionka menu, kolor wyróżnionej litery.</li><li>Szybka zmiana w trakcie czytania: przytrzymaj prawy przycisk dłużej niż dwie sekundy.</li></ul></div>
+        <div class="tp" id="m4" hidden><ul class="list plain"><li><b>Karta SD</b>: sprawdza kartę i mówi, co z nią nie tak.</li><li><b>Wersja</b>: zmienia się w „Aktualizuj”, gdy czeka nowa wersja.</li><li><b>Przesyłanie plików</b> przez kabel, <b>Aplikacja</b>, Wi-Fi i Bluetooth.</li><li><b>Samouczek</b> i <b>Wyłącz</b>.</li></ul></div>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="sec" id="ustawienia">
+      <header class="rv"><p class="lbl">04 · Konfiguracja</p><h2>Ustaw go <em>pod swoje oko.</em></h2><p>Nie ma jednego dobrego ustawienia. Zacznij od tego, co poniżej, i zmieniaj po kilku dniach.</p></header>
+      <div class="bat">
+        <div class="bc rv"><p class="lbl">Tempo</p><div class="big">250–350</div><p>słów na minutę na początek. Czytnik pozwala od 10 do 1000. Podnoś o 25, gdy przestajesz zauważać zmianę.</p></div>
+        <div class="bc rv"><p class="lbl">Przerwy</p><div class="big">100 ms</div><p>Tyle flower czeka przy przecinku i długim słowie, przy kropce 150 ms. Gubisz sens zdań? Wydłuż przerwę przy kropce.</p></div>
+        <div class="bc rv"><p class="lbl">Jasność</p><div class="big">10–100%</div><p>Oba przyciski naraz rozjaśniają o stopień. Motyw Nocny świeci słabiej, żeby nie razić po ciemku.</p></div>
+      </div>
+      <div class="note rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.1"/></svg><p>Pauza może zatrzymać się od razu albo dopiero na końcu zdania. Ta druga opcja pomaga wrócić do lektury bez szukania, gdzie się skończyło.</p></div>
+    </section>
+
+    <!-- 5 -->
+    <section class="sec" id="ksiazki">
+      <header class="rv"><p class="lbl">05 · Wgrywanie książek</p><h2>Cztery drogi <em>na kartę.</em></h2><p>Najwygodniej przez telefon. Kabel i karta przydają się, gdy wgrywasz dużo naraz.</p></header>
+      <div class="rv">
+        <div class="tabs" role="tablist" data-tabs="k">
+          <button role="tab" aria-selected="true" data-t="k1">Aplikacja</button><button role="tab" aria-selected="false" data-t="k2">Przeglądarka</button><button role="tab" aria-selected="false" data-t="k3">Kabel USB</button><button role="tab" aria-selected="false" data-t="k4">Karta microSD</button>
+        </div>
+        <div class="tp" id="k1"><ol class="list">
+          <li>Na czytniku wejdź w <b>Urządzenie → Aplikacja</b>. Na ekranie pojawi się kod QR.</li>
+          <li>W aplikacji flower zeskanuj ten kod. Telefon połączy się z siecią <span class="mono">Flower-…</span>.</li>
+          <li>Jeśli telefon powie, że sieć nie ma internetu, wybierz <b>Zostań połączony</b>.</li>
+          <li>Wybierz plik. Aplikacja sama zamieni PDF, DOCX, MOBI, AZW, AZW3, ODT, HTML, Markdown, EPUB i TXT na format czytnika.</li>
+        </ol><div class="note"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.1"/></svg><p>Książki z zabezpieczeniem DRM, na przykład kupione w niektórych księgarniach z aplikacją, się nie otworzą.</p></div></div>
+        <div class="tp" id="k2" hidden><ol class="list">
+          <li>Na czytniku wejdź w <b>Urządzenie → Aplikacja</b>.</li>
+          <li>Na telefonie albo komputerze połącz się z siecią Wi-Fi <span class="mono">Flower-…</span>. Nie ma hasła.</li>
+          <li>W przeglądarce wpisz <span class="mono">192.168.4.1</span>.</li>
+          <li>W zakładce <b>Biblioteka</b> wgraj plik EPUB albo TXT.</li>
+        </ol></div>
+        <div class="tp" id="k3" hidden><ol class="list">
+          <li>Podłącz flowera do komputera kablem z pudełka.</li>
+          <li>Na czytniku wybierz <b>Urządzenie → Przesyłanie plików</b>. Komputer zobaczy go jak pendrive.</li>
+          <li>Wrzuć książki do folderu <span class="mono">books/books</span>, artykuły do <span class="mono">books/articles</span>.</li>
+          <li>Skończyłeś? Stuknij w ekran albo przytrzymaj środkowy przycisk.</li>
+        </ol></div>
+        <div class="tp" id="k4" hidden><ol class="list">
+          <li>Wyłącz czytnik i wyjmij kartę z dolnej krawędzi.</li>
+          <li>Włóż ją do komputera przez czytnik kart.</li>
+          <li>Książki EPUB i TXT wrzuć do <span class="mono">books/books</span>.</li>
+          <li>Włóż kartę z powrotem i włącz flowera. Karta musi być w formacie FAT32.</li>
+        </ol></div>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="sec" id="aplikacja">
+      <header class="rv"><p class="lbl">06 · Aplikacja</p><h2>Telefon jako <em>pilot i biblioteka.</em></h2><p>Na Androidzie jest aplikacja. Na iPhonie flowerem sterujesz przez przeglądarkę, z tej samej sieci Wi-Fi, którą wystawia czytnik.</p></header>
+
+      <h3 id="android" class="rv" style="margin-bottom:22px">Android</h3>
+      <div class="walk" data-walk>
+        <div class="ws">
+          <div class="w on" data-s="0"><i>1</i><div><b>Otwórz stronę pobierania</b><p>Zeskanuj kod QR z kreatora albo otwórz stronę pobierania na telefonie.</p><a class="cta" href="https://flower.theworkpc.com/appdownload.html" target="_blank" rel="noopener">Pobierz aplikację<svg viewBox="0 0 24 24"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg></a></div></div>
+          <div class="w" data-s="1"><i>2</i><div><b>Pozwól na instalację</b><p>Aplikacji nie ma w Google Play, więc telefon zapyta, czy przeglądarka może instalować aplikacje. Zezwól.</p></div></div>
+          <div class="w" data-s="2"><i>3</i><div><b>Zainstaluj</b><p>Play Protect może ostrzec, że nie zna aplikacji. Wybierz „Zainstaluj mimo to”. Potem aplikacja sama sprawdza aktualizacje.</p></div></div>
+          <div class="w" data-s="3"><i>4</i><div><b>Połącz z czytnikiem</b><p>Na czytniku <b>Urządzenie → Aplikacja</b>, w aplikacji zeskanuj kod QR. Gdy telefon zapyta o sieć bez internetu, zostań połączony.</p></div></div>
+        </div>
+        <div class="phone" aria-hidden="true"><div class="sc"><span class="notch"></span>
+          <div class="ps on"><div class="url">flower.theworkpc.com</div><div class="card"><b style="font-size:16px">flower na Androida</b><p style="margin-top:6px;color:#666">Plik APK, ok. kilkunastu MB</p><span class="bt">Pobierz</span><div class="prog2"><i></i></div></div></div>
+          <div class="ps"><h5>Ustawienia</h5><div class="card"><b>Instaluj nieznane aplikacje</b><p style="color:#666;margin-top:6px">Chrome</p></div><div class="row hl">Zezwalaj z tego źródła <span style="width:38px;height:22px;border-radius:11px;background:#1488D8;display:inline-block;position:relative"><span style="position:absolute;right:2px;top:2px;width:18px;height:18px;border-radius:50%;background:#fff"></span></span></div></div>
+          <div class="ps"><div class="sheet"><b style="font-size:15px">Zainstalować tę aplikację?</b><p style="color:#666;margin-top:8px">flower</p><span class="bt bl">Zainstaluj</span></div></div>
+          <div class="ps"><h5>Połącz</h5><div class="qr"><span class="scanl"></span></div><p style="text-align:center;color:#666">Skieruj aparat na kod z ekranu czytnika</p></div>
+        </div></div>
+      </div>
+
+      <h3 id="iphone" class="rv" style="margin:64px 0 22px">iPhone</h3>
+      <div class="walk" data-walk>
+        <div class="ws">
+          <div class="w on" data-s="0"><i>1</i><div><b>Włącz sieć czytnika</b><p>Na flowerze wejdź w <b>Urządzenie → Aplikacja</b>.</p></div></div>
+          <div class="w" data-s="1"><i>2</i><div><b>Połącz iPhone'a</b><p><b>Ustawienia → Wi-Fi</b> i sieć <span class="mono">Flower-…</span>. Hasła nie ma. Gdy iPhone napisze, że sieć nie ma internetu, zostań w niej.</p></div></div>
+          <div class="w" data-s="2"><i>3</i><div><b>Otwórz panel czytnika</b><p>W Safari wpisz <span class="mono">192.168.4.1</span>. Masz tam bibliotekę, ustawienia, aktualizacje i pomoc.</p></div></div>
+          <div class="w" data-s="3"><i>4</i><div><b>Dodaj skrót</b><p>Stuknij <b>Udostępnij → Do ekranu początkowego</b>. Następnym razem wystarczy połączyć się z siecią czytnika i stuknąć ikonę.</p></div></div>
+        </div>
+        <div class="phone" aria-hidden="true"><div class="sc"><span class="notch"></span>
+          <div class="ps on"><h5>flower</h5><div class="card" style="text-align:center"><p style="color:#666">Urządzenie</p><b style="display:block;font-size:22px;margin-top:6px">Aplikacja</b><div class="qr" style="width:110px;height:110px"></div></div></div>
+          <div class="ps"><h5>Wi-Fi</h5><div class="row">Dom_5G <span>›</span></div><div class="row hl">Flower-7A3F <span class="ok">✓</span></div><div class="row">Sąsiad <span>›</span></div><p style="color:#666;margin-top:10px;font-size:12px">Brak połączenia z internetem</p></div>
+          <div class="ps"><div class="url">192.168.4.1</div><div class="card"><b>Biblioteka</b><p style="color:#666;margin-top:4px">Pan Tadeusz.epub</p></div><div class="card"><b>Ustawienia</b></div><div class="card"><b>Aktualizacja</b></div></div>
+          <div class="ps"><div class="home"><div><span></span>Zdjęcia</div><div><span></span>Mapy</div><div><span></span>Notatki</div><div><span></span>Pogoda</div><div class="me"><span></span>flower</div></div></div>
+        </div></div>
+      </div>
+      <div class="note rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.1"/></svg><p>Z iPhone'a wgrasz od razu pliki EPUB i TXT. Bluetooth z przeglądarki na iPhonie nie działa, więc wszystko idzie przez Wi-Fi czytnika.</p></div>
+    </section>
+
+    <!-- 7 -->
+    <section class="sec" id="ladowanie">
+      <header class="rv"><p class="lbl">07 · Ładowanie i bateria</p><h2>Około 7 godzin <em>czytania.</em></h2><p>Zależy od jasności i ustawień. Pełne ładowanie zrób kablem z pudełka i ładowarką 5 V.</p></header>
+      <div class="bat">
+        <div class="bc rv"><div class="cell"><i></i><svg viewBox="0 0 24 24"><path d="M13 2L5 14h6l-1 8 8-12h-6z"/></svg></div><p>Zielona błyskawica znaczy, że się ładuje. Pojawia się po kilku sekundach od podłączenia.</p></div>
+        <div class="bc rv"><div class="big">%</div><p>Stuknij w baterię na ekranie, żeby zamiast procentów zobaczyć czas do rozładowania. Szacunek pojawia się po kilku minutach czytania.</p></div>
+        <div class="bc rv"><div class="big">5%</div><p>Przy tylu procentach flower ostrzega. Gdy bateria jest prawie pusta, sam się wyłącza.</p></div>
+      </div>
+      <div class="note rv"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.1"/></svg><p>Nie ładuj pod kołdrą ani na poduszce. Więcej w <a href="../#bezpieczenstwo">zasadach bezpieczeństwa</a>.</p></div>
+    </section>
+
+    <!-- 8 -->
+    <section class="sec" id="aktualizacje">
+      <header class="rv"><p class="lbl">08 · Aktualizacje</p><h2>Nowe funkcje <em>przychodzą same.</em></h2><p>Gdy flower zna twoje Wi-Fi, przy każdym włączeniu sprawdza, czy jest nowa wersja.</p></header>
+      <ol class="list rv">
+        <li>Gdy jest nowa wersja, zobaczysz ekran „Dostępna aktualizacja”. Wybierz <b>Aktualizuj</b> albo <b>Pomiń na razie</b>.</li>
+        <li>Pominiętą aktualizację znajdziesz później w zakładce Urządzenie, na kafelku <b>Aktualizuj</b>.</li>
+        <li>Nie wyłączaj czytnika w trakcie. Po aktualizacji uruchomi się sam.</li>
+        <li>Jeśli aktualizacja się nie uda, flower wraca do poprzedniej wersji.</li>
+      </ol>
+    </section>
+
+    <!-- 9 -->
+    <section class="sec" id="wideo">
+      <header class="rv"><p class="lbl">09 · Poradniki wideo</p><h2>Zobacz, <em>zamiast czytać.</em></h2><p>Krótkie filmy nagrane na prawdziwym czytniku. Dochodzą nowe.</p></header>
+      <div class="vids" id="vids"></div>
+    </section>
+
+    <!-- 10 -->
+    <section class="sec" id="problemy">
+      <header class="rv"><p class="lbl">10 · Coś nie działa</p><h2>Najpierw <em>to sprawdź.</em></h2><p>Większość kłopotów rozwiązuje się w minutę.</p></header>
+      <div class="fsearch rv"><input id="fq" type="search" placeholder="Wpisz, co się dzieje" aria-label="Szukaj problemu"></div>
+      <div class="faq" id="faq">
+        <details class="qa rv"><summary>Czytnik się zawiesił</summary><div class="a"><p>Naciśnij lewy przycisk na górnej krawędzi, Reset. Czytnik uruchomi się od nowa. Książki i ustawienia zostają.</p></div></details>
+        <details class="qa rv"><summary>Ekran nagle zgasł</summary><div class="a"><p>Prawy przycisk gasi ekran. Naciśnij dowolny przycisk albo stuknij dwa razy w ekran. Jeśli to nie pomaga, mogła się rozładować bateria.</p></div></details>
+        <details class="qa rv"><summary>Czytnik sam się wyłącza</summary><div class="a"><p>Gdy przez dłuższy czas nic nie dotykasz, włącza się wygaszacz. Po chwili flower pyta „Wyłączyć czytnik?” i bez odpowiedzi wyłącza się po 10 sekundach. Czas wygaszacza zmienisz w Ustawieniach.</p></div></details>
+        <details class="qa rv"><summary>Nie widzi karty microSD</summary><div class="a"><ol><li>Wejdź w <b>Urządzenie → Karta SD</b>. Czytnik powie, co jest nie tak.</li><li>Karta musi być w formacie FAT32. Flower może ją sformatować sam, ale to kasuje wszystkie pliki.</li><li>Sprawdź, czy karta siedzi do końca w gnieździe.</li></ol></div></details>
+        <details class="qa rv"><summary>Nie widzę swoich książek</summary><div class="a"><p>Książki muszą leżeć w folderze <span class="mono">books/books</span>. Jeśli folderów nie ma, <b>Urządzenie → Karta SD</b> zaproponuje ich utworzenie.</p></div></details>
+        <details class="qa rv"><summary>Nie łączy się z Wi-Fi</summary><div class="a"><ul><li><b>Złe hasło do sieci</b>: wpisz hasło jeszcze raz, uważaj na wielkie litery.</li><li><b>Nie widzę tej sieci</b>: flower działa tylko z siecią 2,4 GHz. Podejdź bliżej routera.</li><li><b>Router nie odpowiada</b>: uruchom router ponownie i spróbuj za minutę.</li></ul></div></details>
+        <details class="qa rv"><summary>Aplikacja nie widzi czytnika</summary><div class="a"><ol><li>Na czytniku musi być otwarte <b>Urządzenie → Aplikacja</b>.</li><li>Telefon musi być połączony z siecią <span class="mono">Flower-…</span>, a nie z domowym Wi-Fi.</li><li>Gdy telefon zapyta o sieć bez internetu, wybierz „Zostań połączony”. Jeśli dalej nic, wyłącz na chwilę dane komórkowe.</li></ol></div></details>
+        <details class="qa rv"><summary>Brakuje czcionek albo plików czytnika</summary><div class="a"><p>Flower sam zaproponuje „Pobierz zasoby czytnika na kartę”. Potrzebuje zapisanej sieci Wi-Fi i około 10 minut.</p></div></details>
+        <details class="qa rv"><summary>Plik się nie otwiera</summary><div class="a"><p>Bezpośrednio na czytniku działają EPUB i TXT. Pozostałe formaty wgrywaj przez aplikację, która je zamienia. Książki z zabezpieczeniem DRM się nie otworzą.</p></div></details>
+        <details class="qa rv"><summary>Nie ładuje się</summary><div class="a"><p>Spróbuj innej ładowarki 5 V i kabla z pudełka. Błyskawica pokazuje się dopiero po kilku sekundach. Jeśli po godzinie nic się nie zmienia, napisz do nas.</p></div></details>
+        <p class="empty" id="faqEmpty" hidden>Nic nie pasuje. Napisz do nas, odpiszemy.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="kontakt">
+      <div class="contact rv">
+        <div><h2>Dalej nie działa?</h2><p>Napisz do nas. Szybciej pomożemy, jeśli dodasz:</p><ul><li>numer seryjny ze spodu czytnika,</li><li>co robisz i co się wtedy dzieje,</li><li>krótki film albo zdjęcie ekranu.</li></ul></div>
+        <div><a class="mail" href="mailto:flower.thereader@gmail.com?subject=Pomoc%20z%20czytnikiem">flower.thereader@gmail.com</a><p><a href="../#zwroty" style="color:#E9EBE6">Zwroty i reklamacje</a></p></div>
+      </div>
+    </section>
+  </div>
+</div>
+</main>
+
+<footer class="foot">
+  <div class="wrap in">
+    <div><h4>Sklep</h4><ul><li><a href="../#start">flower</a></li><li><a href="../#dostawa">Dostawa i płatności</a></li><li><a href="../#zwroty">Zwroty i reklamacje</a></li></ul></div>
+    <div><h4>Dokumenty</h4><ul><li><a href="../#regulamin">Regulamin</a></li><li><a href="../#prywatnosc">Prywatność</a></li><li><a href="../#bezpieczenstwo">Bezpieczeństwo produktu</a></li></ul></div>
+    <div><h4>Obserwuj</h4>
+      <div class="soc">
+        <a href="https://www.instagram.com/flower.thereader/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" class="d"/></svg></a>
+        <a href="https://www.tiktok.com/@flower.thereader" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.7 2.3 4.5 5 4.7"/></svg></a>
+        <a href="https://www.facebook.com/flower.thereader" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H9v3h2.5V21"/></svg></a>
+        <a href="https://www.youtube.com/@flower.thereader" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3v5.4l4.6-2.7z" class="d"/></svg></a>
+        <a href="https://www.threads.net/@flower.thereader" target="_blank" rel="noopener" aria-label="Threads"><svg viewBox="0 0 24 24"><path d="M16.8 11.2c-.4-2.4-2-3.6-4.4-3.6-2.6 0-4.3 1.8-4.3 4.4s1.6 4.5 4.2 4.5c2.3 0 3.6-1.4 3.6-3 0-1.9-1.7-2.7-3.6-2.5-1.5.1-2.5.9-2.4 2 .1 1.2 1.3 1.6 2.4 1.5 1.9-.2 2.9-1.7 2.9-4.5"/><path d="M19.5 7.5C18 4.6 15.4 3 12.2 3 7 3 3.5 6.6 3.5 12s3.5 9 8.7 9c3.4 0 6-1.4 7.3-4"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap"><div class="legal"><span>Karol Wach, ul. Kręta 23, 42-100 Kłobuck</span><span>© 2026 flower</span></div></div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(s,r){return (r||document).querySelector(s);}
+function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+
+/* Filmy: wpisz src (mp4 z repo albo link YouTube embed), a karta zamieni się w odtwarzacz. */
+var VIDEOS=[
+  {t:'Rozpakowanie i pierwsze włączenie',d:'Co jest w pudełku, ładowanie, kreator',src:''},
+  {t:'Przyciski w minutę',d:'Trzy przyciski i gesty na ekranie',src:''},
+  {t:'Pierwsza książka z telefonu',d:'Aplikacja, kod QR, wgrywanie',src:''},
+  {t:'Instalacja na Androidzie',d:'APK, zgoda na instalację, parowanie',src:''},
+  {t:'iPhone przez przeglądarkę',d:'Sieć czytnika i skrót na ekranie',src:''},
+  {t:'Jak dobrać tempo',d:'Od 250 słów na minutę w górę',src:''},
+  {t:'Motywy i czcionki',d:'Dzień, noc i kolorowe palety',src:''},
+  {t:'Kabel i karta microSD',d:'Dużo książek naraz',src:''}
+];
+
+/* theme */
+var root=document.documentElement,tb=$('#themeBtn');
+try{var st=localStorage.getItem('flower-help-theme');if(st)root.setAttribute('data-theme',st);}catch(e){}
+function isDark(){var a=root.getAttribute('data-theme');if(a)return a==='dark';return matchMedia('(prefers-color-scheme: dark)').matches;}
+function syncMeta(){$('meta[name="theme-color"]').setAttribute('content',isDark()?'#0B111C':'#F4F1EA');}
+syncMeta();
+tb.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('flower-help-theme',n);}catch(e){}syncMeta();});
+
+/* RSVP demo */
+var TXT='Litwo! Ojczyzno moja! ty jesteś jak zdrowie. Ile cię trzeba cenić, ten tylko się dowie, kto cię stracił. Dziś piękność twą w całej ozdobie widzę i opisuję, bo tęsknię po tobie.'.split(' ');
+var wEl=$('#demoWord'),pEl=$('#demoPct'),wpmEl=$('#demoWpm'),sp=$('#demoSpeed'),out=$('#demoOut'),pl=$('#demoPlay'),wi=0,run=!reduce,timer=null;
+function orp(w){var c=w.replace(/[^\p{L}]/gu,'').length,i=c<=1?0:c<=5?1:c<=9?2:3;var k=-1,j;for(j=0;j<w.length;j++){if(/\p{L}/u.test(w[j])){k++;if(k===i)break;}}
+  var R=w.length-j-1;return ' '.repeat(Math.max(0,R-j))+w.slice(0,j)+'<b>'+w[j]+'</b>'+w.slice(j+1)+' '.repeat(Math.max(0,j-R));}
+function show(){var w=TXT[wi];wEl.innerHTML=orp(w);pEl.textContent=Math.round(wi/(TXT.length-1)*100)+'%';}
+function tick(){show();var w=TXT[wi],d=60000/+sp.value;if(/[.!?]$/.test(w))d+=150;else if(/,$/.test(w))d+=100;if(w.length>8)d+=100;wi=(wi+1)%TXT.length;timer=setTimeout(function(){if(run)tick();},d+(wi===0?900:0));}
+function setRun(r){run=r;pl.textContent=r?'Pauza':'Czytaj';pl.setAttribute('aria-pressed',String(r));clearTimeout(timer);if(r)tick();}
+sp.addEventListener('input',function(){out.textContent=sp.value+' słów/min';wpmEl.textContent=sp.value+' sł./min';});
+pl.addEventListener('click',function(){setRun(!run);});
+show();if(run)setRun(true);else{pl.textContent='Czytaj';pl.setAttribute('aria-pressed','false');}
+document.addEventListener('visibilitychange',function(){if(document.hidden){clearTimeout(timer);}else if(run){clearTimeout(timer);tick();}});
+
+/* buttons explorer */
+var ACT={
+  reset:[['Naciśnij','Uruchamia czytnik od nowa. Pomaga, gdy coś się zawiesi. Książki i ustawienia zostają.']],
+  pwr:[['Krótko','Wstecz o jeden ekran. W trakcie czytania pauza na końcu zdania. Budzi wygaszony ekran.'],['Przed czytaniem','Otwiera menu.'],['Przytrzymaj ok. 2 s','Wyłącza czytnik. Tym samym przyciskiem go włączasz.']],
+  boot:[['Krótko','Gasi ekran i wstrzymuje czytanie. Dowolny przycisk albo dwa stuknięcia go budzą.'],['Przytrzymaj ponad 2 s','Zmienia motyw czytania.']],
+  both:[['Razem','Jaśniej o jeden stopień. Po najjaśniejszym wraca do najciemniejszego.']]
+};
+function pick(b){var a=$('#act');a.innerHTML=ACT[b].map(function(r){return '<div><span>'+r[0]+'</span><p>'+r[1]+'</p></div>';}).join('');
+  $$('.btabs button').forEach(function(x){x.setAttribute('aria-selected',String(x.dataset.b===b));});
+  $$('.hb').forEach(function(g){g.classList.toggle('on',b==='both'?(g.dataset.b==='pwr'||g.dataset.b==='boot'):g.dataset.b===b);});}
+$$('.btabs button').forEach(function(x){x.addEventListener('click',function(){pick(x.dataset.b);});});
+$$('.hb').forEach(function(g){function go(){pick(g.dataset.b);}g.addEventListener('click',go);g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});});
+pick('pwr');
+
+/* tabs */
+$$('[data-tabs]').forEach(function(tl){var bs=$$('button',tl);bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){var on=x===b;x.setAttribute('aria-selected',String(on));var p=document.getElementById(x.dataset.t);if(p)p.hidden=!on;});});});});
+
+/* walkthroughs: click a step or scroll past it, the phone follows */
+$$('[data-walk]').forEach(function(wk){var ws=$$('.w',wk),ps=$$('.ps',wk);
+  function set(i){ws.forEach(function(w,j){w.classList.toggle('on',j===i);});ps.forEach(function(p,j){p.classList.toggle('on',j===i);});}
+  ws.forEach(function(w,i){w.addEventListener('click',function(e){if(e.target.closest('a'))return;set(i);});});
+  if('IntersectionObserver' in window&&innerWidth>860){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)set(ws.indexOf(e.target));});},{rootMargin:'-45% 0px -45% 0px'});ws.forEach(function(w){io.observe(w);});}
+  else if(!reduce){var k=0;setInterval(function(){var r=wk.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0&&!wk.matches(':hover')){k=(k+1)%ws.length;set(k);}},3800);}
+});
+
+/* videos */
+var vb=$('#vids');
+VIDEOS.forEach(function(v){var c=document.createElement('div');c.className='vid rv';
+  if(v.src){if(/youtube|youtu\.be/.test(v.src)){c.innerHTML='<iframe src="'+v.src+'" title="'+v.t+'" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>';}
+    else c.innerHTML='<video src="'+v.src+'" controls playsinline preload="metadata"></video>';}
+  else c.innerHTML='<em>Wkrótce</em><span class="pl"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span><b>'+v.t+'</b><span>'+v.d+'</span>';
+  vb.appendChild(c);});
+
+/* faq filter */
+var fq=$('#fq'),qas=$$('.qa'),fe=$('#faqEmpty');
+function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ł/g,'l').replace(/[-'’]/g,'');}
+fq.addEventListener('input',function(){var t=norm(fq.value.trim()),n=0;qas.forEach(function(q){var hit=!t||norm(q.textContent).indexOf(t)>=0;q.classList.toggle('hide',!hit);if(hit)n++;if(t&&hit&&n===1)q.open=true;});fe.hidden=n>0;});
+
+/* global search */
+var idx=[];
+$$('.sec').forEach(function(s){var lab=($('.lbl',s)||{}).textContent||'',h=$('h2',s);if(h)idx.push({t:h.textContent,s:lab.replace(/^\d+ · /,''),id:s.id,x:s.textContent});
+  $$('h3[id]',s).forEach(function(h3){idx.push({t:h3.textContent,s:lab.replace(/^\d+ · /,''),id:h3.id,x:h3.textContent+' '+(h3.nextElementSibling||{}).textContent});});
+  $$('.qa',s).forEach(function(q,i){q.id=q.id||('p'+i);idx.push({t:$('summary',q).textContent,s:'Coś nie działa',id:q.id,x:q.textContent,qa:q});});});
+var q=$('#q'),res=$('#res'),sel=-1;
+function render(){var t=norm(q.value.trim());if(!t){res.hidden=true;return;}
+  var hits=idx.map(function(o){var a=norm(o.t).indexOf(t)>=0?2:norm(o.x).indexOf(t)>=0?1:0;return [a,o];}).filter(function(p){return p[0];}).sort(function(a,b){return b[0]-a[0];}).slice(0,7);
+  res.innerHTML=hits.length?hits.map(function(p,i){return '<a href="#'+p[1].id+'" data-i="'+i+'"><span>'+p[1].s+'</span>'+p[1].t+'</a>';}).join(''):'<p>Nic nie znalazłem. Spróbuj innego słowa albo napisz do nas.</p>';
+  res.hidden=false;sel=-1;
+  $$('a',res).forEach(function(a,i){a.addEventListener('click',function(){var o=hits[i][1];if(o.qa)o.qa.open=true;res.hidden=true;q.blur();});});}
+q.addEventListener('input',render);
+q.addEventListener('keydown',function(e){var as=$$('a',res);if(!as.length)return;if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();sel=(sel+(e.key==='ArrowDown'?1:-1)+as.length)%as.length;as.forEach(function(a,i){a.classList.toggle('on',i===sel);});}else if(e.key==='Enter'){e.preventDefault();(as[Math.max(0,sel)]).click();location.hash=as[Math.max(0,sel)].getAttribute('href');}else if(e.key==='Escape'){res.hidden=true;}});
+document.addEventListener('click',function(e){if(!e.target.closest('.search'))res.hidden=true;});
+
+/* chips (mobile) mirror the side nav */
+var chips=$('#chips');chips.innerHTML=$('#side').innerHTML;
+var navs=$$('#side a').concat($$('#chips a'));
+var secs=$$('.sec');
+
+/* reveal */
+if('IntersectionObserver' in window&&!reduce){var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+  setTimeout(function(){$$('.rv').forEach(function(el){ro.observe(el);});},0);}
+else $$('.rv').forEach(function(el){el.classList.add('in');});
+
+/* scroll: progress bar, header line, active section, stepper line */
+var prog=$('#prog'),top=$('#top'),steps=$('#steps'),fill=$('#stepsFill'),dots=$$('.step'),cur='';
+function onScroll(){var h=document.documentElement,max=h.scrollHeight-innerHeight;prog.style.transform='scaleX('+(max>0?scrollY/max:0)+')';top.classList.toggle('sc',scrollY>8);
+  var id='';secs.forEach(function(s){if(s.getBoundingClientRect().top<innerHeight*.35)id=s.id;});
+  if(id!==cur){cur=id;navs.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id);});var c=$('#chips a.on');if(c&&chips.offsetParent)chips.scrollTo({left:c.offsetLeft-20,behavior:reduce?'auto':'smooth'});}
+  var r=steps.getBoundingClientRect(),mid=innerHeight*.6,len=Math.max(0,Math.min(r.height-44,mid-r.top-22));fill.style.height=len+'px';
+  dots.forEach(function(d){d.classList.toggle('lit',d.getBoundingClientRect().top+22<mid);});}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+})();
+</script>
+</body>
+</html>
