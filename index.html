@@ -434,7 +434,7 @@ details.q p+p{margin-top:10px}
           <input class="field" id="pm" placeholder="np. KLO01M" autocomplete="off" spellcheck="false">
           <p style="margin-top:8px"><a href="https://inpost.pl/znajdz-paczkomat" target="_blank" rel="noopener">Znajdź paczkomat na mapie InPost</a></p>
         </div>
-        <label class="opt"><input type="radio" name="ship" value="pp"><span><b>Poczta Polska</b><small id="t2">ok. 10 dni roboczych, adres podasz przy płatności</small></span><span class="pr"><span class="fill">__ zł</span></span></label>
+        <label class="opt"><input type="radio" name="ship" value="pp"><span><b>Poczta Polska</b><small id="t2">ok. 10 dni roboczych, adres podasz przy płatności</small></span><span class="pr">cena w płatności</span></label>
       </fieldset>
 
       <fieldset>
@@ -453,10 +453,6 @@ details.q p+p{margin-top:10px}
         </div>
       </fieldset>
 
-      <details class="limits"><summary>Czego flower jeszcze nie umie</summary>
-        <ul><li><span class="fill">tu dopiszesz listę przed startem</span></li></ul>
-      </details>
-      <label class="check"><input type="checkbox" id="c1"> <span>Znam listę rzeczy, których flower jeszcze nie umie, i akceptuję te cechy.</span></label>
       <label class="check"><input type="checkbox" id="c2"> <span>Akceptuję <a href="#regulamin">regulamin</a> i <a href="#prywatnosc">politykę prywatności</a>.</span></label>
       <button class="btn go" id="go" type="button" disabled>Przejdź do płatności</button>
       <p class="fine" id="goMsg">Zapłacisz BLIK-iem, kartą, Apple Pay, Google Pay albo Przelewy24. Płatność obsługuje Stripe. Na zwrot masz 14 dni.</p>
@@ -523,7 +519,7 @@ details.q p+p{margin-top:10px}
         <div><dt>Ekran</dt><dd>3,49" IPS LCD, 640 × 172 px, dotykowy</dd></div>
         <div><dt>Wymiary</dt><dd>100 × 35 × 23 mm</dd></div>
         <div><dt>Masa</dt><dd>85 g</dd></div>
-        <div><dt>Akumulator</dt><dd>Li-Po 3,7 V, 2000 mAh <span class="fill">do potwierdzenia na naklejce</span></dd></div>
+        <div><dt>Akumulator</dt><dd>Li-Po 3,7 V, 2750 mAh</dd></div>
         <div><dt>Czas pracy</dt><dd>ok. 7 h czytania, zależnie od jasności i ustawień</dd></div>
         <div><dt>Ładowanie</dt><dd>USB-C, 5 V</dd></div>
         <div><dt>Pamięć</dt><dd>karta microSD 4 GB w zestawie</dd></div>
@@ -557,7 +553,6 @@ details.q p+p{margin-top:10px}
           <details class="q"><summary>Skąd brać książki?</summary><p>Z plików, które już masz, z Wolnych Lektur, z księgarni sprzedających e-booki bez DRM. Nie mamy własnego sklepu z książkami.</p></details>
         </section>
         <section id="q-urzadzenie"><h3>Urządzenie</h3>
-          <details class="q"><summary>Czego v1 jeszcze nie umie?</summary><p><span class="fill">tu dopiszesz listę przed startem</span></p></details>
           <details class="q"><summary>Mam iPhone'a. Zadziała?</summary><p>Tak, przez przeglądarkę. Aplikacja na Androida robi więcej, dlatego ją polecamy.</p></details>
           <details class="q"><summary>Na ile starcza bateria?</summary><p>Około 7 godzin czytania. Przy pełnej jasności krócej, przy przygaszonym ekranie dłużej. Ładujesz go kablem USB-C z zestawu.</p></details>
           <details class="q"><summary>W jakich językach jest menu?</summary><p>Po polsku, angielsku, niemiecku, hiszpańsku, francusku i rumuńsku.</p></details>
@@ -608,7 +603,7 @@ details.q p+p{margin-top:10px}
         <p>Wysyłamy tylko na terenie Polski.</p>
         <ul>
           <li><b>Paczkomat InPost</b>: 16,49 zł, do 5 dni roboczych od zapłaty. Kod paczkomatu podajesz w koszyku.</li>
-          <li><b>Poczta Polska</b>: <span class="fill">__ zł</span>, ok. 10 dni roboczych od zapłaty. Adres podajesz przy płatności.</li>
+          <li><b>Poczta Polska</b>: cena zależy od przesyłki i pokazuje się przy płatności. Ok. 10 dni roboczych od zapłaty. Adres podajesz przy płatności.</li>
         </ul>
         <p>Koszt dostawy widzisz w koszyku, zanim przejdziesz do płatności. Po nadaniu dostajesz mail z numerem przesyłki.</p>
         <h2 id="d2">Przedsprzedaż</h2>
@@ -642,12 +637,11 @@ details.q p+p{margin-top:10px}
           <li>Odpowiemy w ciągu 14 dni.</li>
           <li>Jeśli Flower jest niezgodny z umową, przysługują ci uprawnienia z ustawy o prawach konsumenta.</li>
         </ol>
-        <p>Cechy wymienione na liście „Czego v1 jeszcze nie umie”, zaakceptowane przy zakupie, nie są wadą. To opis tej wersji.</p>
         <h2 id="z3">Formularz odstąpienia od umowy</h2>
         <p>Wypełnij i odeślij tylko, jeśli chcesz odstąpić od umowy. Wystarczy też zwykły mail z tymi danymi.</p>
         <div class="form">
           <p><b>Adresat:</b> Karol Wach, adres jak na dole strony, flower.thereader@gmail.com</p>
-          <p>Ja/My(*) niniejszym informuję/informujemy(*) o moim/naszym odstąpieniu od umowy sprzedaży następującej rzeczy: Flower v1.</p>
+          <p>Ja/My(*) niniejszym informuję/informujemy(*) o moim/naszym odstąpieniu od umowy sprzedaży następującej rzeczy: flower (czytnik).</p>
           <p>Data zawarcia umowy / data odbioru(*): ____________</p>
           <p>Imię i nazwisko konsumenta(-ów): ____________</p>
           <p>Adres konsumenta(-ów): ____________</p>
@@ -667,11 +661,11 @@ details.q p+p{margin-top:10px}
     <div class="phead"><h1>Regulamin.</h1></div>
     <div class="doc"><aside><a href="#regulamin" data-jump="r1">§1 Sprzedawca</a><a href="#regulamin" data-jump="r2">§2 Definicje</a><a href="#regulamin" data-jump="r3">§3 Zamówienia</a><a href="#regulamin" data-jump="r4">§4 Ceny i płatności</a><a href="#regulamin" data-jump="r5">§5 Dostawa</a><a href="#regulamin" data-jump="r6">§6 Odstąpienie</a><a href="#regulamin" data-jump="r7">§7 Reklamacje</a><a href="#regulamin" data-jump="r8">§8 Kody rabatowe</a><a href="#regulamin" data-jump="r9">§9 Spory</a><a href="#regulamin" data-jump="r10">§10 Postanowienia końcowe</a></aside>
       <div class="body">
-        <p class="meta">Obowiązuje od <span class="fill">data startu sprzedaży</span>. Wersja robocza z 15 października 2026 r., do przejrzenia przez prawnika.</p>
+        <p class="meta">Obowiązuje od dnia uruchomienia sklepu. Wersja robocza, do przejrzenia przez prawnika.</p>
         <h2 id="r1">§1 Sprzedawca</h2>
-        <ol><li>Sklep internetowy flower (<span class="fill">domena</span>) prowadzi Karol Wach, adres do korespondencji podany na dole strony, e-mail: flower.thereader@gmail.com („Sprzedawca”).</li><li>Sprzedawca prowadzi działalność nierejestrowaną w rozumieniu art. 5 ust. 1 ustawy Prawo przedsiębiorców i nie jest wpisany do CEIDG.</li><li>Sprzedawca jest zwolniony z podatku VAT na podstawie art. 113 ust. 1 ustawy o podatku od towarów i usług.</li></ol>
+        <ol><li>Sklep internetowy flower (flower-device.com) prowadzi Karol Wach, adres do korespondencji podany na dole strony, e-mail: flower.thereader@gmail.com, telefon: 667 849 367 („Sprzedawca”).</li><li>Sprzedawca prowadzi działalność nierejestrowaną w rozumieniu art. 5 ust. 1 ustawy Prawo przedsiębiorców i nie jest wpisany do CEIDG.</li><li>Sprzedawca jest zwolniony z podatku VAT na podstawie art. 113 ust. 1 ustawy o podatku od towarów i usług.</li></ol>
         <h2 id="r2">§2 Definicje</h2>
-        <ol><li><b>Klient</b>: osoba, która składa zamówienie.</li><li><b>Konsument</b>: osoba fizyczna kupująca bez związku ze swoją działalnością gospodarczą lub zawodową. Przepisy o konsumencie stosuje się też do osoby fizycznej prowadzącej działalność, gdy umowa nie ma dla niej charakteru zawodowego.</li><li><b>Produkt</b>: czytnik Flower v1 opisany na stronie sklepu.</li><li><b>Umowa</b>: umowa sprzedaży Produktu zawarta na odległość.</li></ol>
+        <ol><li><b>Klient</b>: osoba, która składa zamówienie.</li><li><b>Konsument</b>: osoba fizyczna kupująca bez związku ze swoją działalnością gospodarczą lub zawodową. Przepisy o konsumencie stosuje się też do osoby fizycznej prowadzącej działalność, gdy umowa nie ma dla niej charakteru zawodowego.</li><li><b>Produkt</b>: czytnik flower opisany na stronie sklepu.</li><li><b>Umowa</b>: umowa sprzedaży Produktu zawarta na odległość.</li></ol>
         <h2 id="r3">§3 Zamówienia</h2>
         <ol><li>Do złożenia zamówienia potrzebujesz przeglądarki internetowej i adresu e-mail. Nie musisz zakładać konta.</li><li>Zamówienie składasz, wybierając metodę dostawy, akceptując regulamin i opłacając zamówienie w bramce Stripe. Przycisk w bramce oznacza zamówienie z obowiązkiem zapłaty.</li><li>Umowa zostaje zawarta z chwilą, gdy wyślemy e-mail z potwierdzeniem zamówienia. Do e-maila dołączamy treść regulaminu i formularz odstąpienia.</li></ol>
         <h2 id="r4">§4 Ceny i płatności</h2>
@@ -681,7 +675,7 @@ details.q p+p{margin-top:10px}
         <h2 id="r6">§6 Odstąpienie od umowy</h2>
         <ol><li>Konsument może odstąpić od umowy w ciągu 14 dni od objęcia Produktu w posiadanie, bez podawania przyczyny.</li><li>Wystarczy wysłać oświadczenie na adres e-mail lub pocztowy Sprzedawcy przed upływem terminu. Konsument może użyć wzoru formularza ze strony „Zwroty i reklamacje”.</li><li>Sprzedawca zwraca wszystkie płatności, w tym koszt dostawy do wysokości najtańszego oferowanego sposobu, w ciągu 14 dni od otrzymania oświadczenia, tą samą metodą płatności. Sprzedawca może wstrzymać zwrot do otrzymania Produktu lub dowodu jego odesłania.</li><li>Konsument odsyła Produkt w ciągu 14 dni od złożenia oświadczenia i ponosi bezpośredni koszt odesłania.</li><li>Konsument odpowiada za zmniejszenie wartości Produktu wynikające z korzystania z niego w sposób wykraczający poza konieczny do stwierdzenia jego charakteru, cech i funkcjonowania.</li></ol>
         <h2 id="r7">§7 Reklamacje</h2>
-        <ol><li>Sprzedawca odpowiada za zgodność Produktu z umową przez 2 lata od jego dostarczenia, na zasadach z rozdziału 5a ustawy o prawach konsumenta.</li><li>Reklamację można złożyć e-mailem lub pocztą. Warto opisać problem i dołączyć zdjęcie lub film.</li><li>Sprzedawca odpowiada na reklamację w ciągu 14 dni.</li><li>Uprawnienia Konsumenta przy niezgodności Produktu z umową określa ustawa o prawach konsumenta.</li><li>Produkt jest ręcznie składaną wersją v1. Przed zakupem Konsument dostaje listę jego ograniczeń i akceptuje je osobnym oświadczeniem. Cechy z tej listy nie stanowią niezgodności z umową (art. 43b ust. 5 ustawy o prawach konsumenta).</li></ol>
+        <ol><li>Sprzedawca odpowiada za zgodność Produktu z umową przez 2 lata od jego dostarczenia, na zasadach z rozdziału 5a ustawy o prawach konsumenta.</li><li>Reklamację można złożyć e-mailem lub pocztą. Warto opisać problem i dołączyć zdjęcie lub film.</li><li>Sprzedawca odpowiada na reklamację w ciągu 14 dni.</li><li>Uprawnienia Konsumenta przy niezgodności Produktu z umową określa ustawa o prawach konsumenta.</li></ol>
         <h2 id="r8">§8 Kody rabatowe</h2>
         <ol><li>Kod rabatowy działa jeden raz, do daty podanej na karcie.</li><li>Kodów nie można łączyć ani wymienić na gotówkę.</li><li>Przy odstąpieniu od umowy zwracamy kwotę faktycznie zapłaconą.</li></ol>
         <h2 id="r9">§9 Spory</h2>
@@ -701,7 +695,7 @@ details.q p+p{margin-top:10px}
       <div class="body">
         <p class="meta">Wersja robocza z 15 października 2026 r., do przejrzenia przez prawnika.</p>
         <h2 id="p1">Administrator</h2>
-        <p>Administratorem danych jest Karol Wach (adres na dole strony), flower.thereader@gmail.com.</p>
+        <p>Administratorem danych jest Karol Wach (adres na dole strony), flower.thereader@gmail.com, tel. 667 849 367.</p>
         <h2 id="p2">Jakie dane i po co</h2>
         <ul>
           <li><b>Zamówienie</b>: imię i nazwisko, adres lub kod paczkomatu, e-mail, telefon. Potrzebujemy ich, żeby zawrzeć i wykonać umowę (art. 6 ust. 1 lit. b RODO).</li>
@@ -734,9 +728,9 @@ details.q p+p{margin-top:10px}
     <div class="doc"><aside><a href="#bezpieczenstwo" data-jump="b1">Producent</a><a href="#bezpieczenstwo" data-jump="b2">Produkt</a><a href="#bezpieczenstwo" data-jump="b3">Ostrzeżenia</a><a href="#bezpieczenstwo" data-jump="b4">Akumulator</a><a href="#bezpieczenstwo" data-jump="b5">Utylizacja</a></aside>
       <div class="body">
         <h2 id="b1">Producent</h2>
-        <p>Karol Wach, Polska, adres pocztowy na dole strony. Kontakt: flower.thereader@gmail.com.</p>
+        <p>Karol Wach, Polska, adres pocztowy na dole strony. Kontakt: flower.thereader@gmail.com, tel. 667 849 367.</p>
         <h2 id="b2">Produkt</h2>
-        <p>Flower v1, kieszonkowy czytnik tekstu. Numer seryjny: <span class="fill">na spodzie urządzenia</span>. Zasilanie: wbudowany akumulator Li-Po 3,7 V, ładowanie USB-C 5 V. Łączność radiowa: Wi-Fi i Bluetooth LE w paśmie 2400–2483,5 MHz, maksymalna moc <span class="fill">wg deklaracji modułu ESP32-S3</span>.</p>
+        <p>flower, kieszonkowy czytnik tekstu. Numer seryjny znajdziesz na spodzie urządzenia. Zasilanie: wbudowany akumulator Li-Po 3,7 V, ładowanie USB-C 5 V. Łączność radiowa: Wi-Fi i Bluetooth LE w paśmie 2400–2483,5 MHz.</p>
         <h2 id="b3">Ostrzeżenia</h2>
         <ul>
           <li>To nie jest zabawka. Karta microSD to mała część, trzymaj ją z dala od dzieci poniżej 3 lat.</li>
@@ -782,9 +776,9 @@ details.q p+p{margin-top:10px}
       <div><h4>Poznaj</h4><ul><li><a href="#specyfikacja">Specyfikacja</a></li><li><a href="#pytania">Pytania</a></li><li><a href="#historia">Historia</a></li></ul></div>
       <div><h4>Dokumenty</h4><ul><li><a href="#regulamin">Regulamin</a></li><li><a href="#prywatnosc">Prywatność</a></li><li><a href="#bezpieczenstwo">Bezpieczeństwo produktu</a></li></ul></div>
       <div><h4>Masz już swojego?</h4><ul><li><a href="pomoc/">Pomoc i instrukcje</a></li><li><a href="pomoc/#aplikacja">Aplikacja</a></li><li><a href="pomoc/#problemy">Coś nie działa</a></li></ul></div>
-      <div><h4>Kontakt</h4><ul><li><a href="mailto:flower.thereader@gmail.com">flower.thereader@gmail.com</a></li></ul><div class="soc"><a href="https://www.instagram.com/flower.thereader/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" class="d"/></svg></a><a href="https://www.tiktok.com/@flower.thereader" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.7 2.3 4.5 5 4.7"/></svg></a><a href="https://www.facebook.com/flower.thereader" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H9v3h2.5V21"/></svg></a><a href="https://www.youtube.com/@flower.thereader" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3v5.4l4.6-2.7z" class="d"/></svg></a><a href="https://www.threads.net/@flower.thereader" target="_blank" rel="noopener" aria-label="Threads"><svg viewBox="0 0 24 24"><path d="M16.8 11.2c-.4-2.4-2-3.6-4.4-3.6-2.6 0-4.3 1.8-4.3 4.4s1.6 4.5 4.2 4.5c2.3 0 3.6-1.4 3.6-3 0-1.9-1.7-2.7-3.6-2.5-1.5.1-2.5.9-2.4 2 .1 1.2 1.3 1.6 2.4 1.5 1.9-.2 2.9-1.7 2.9-4.5"/><path d="M19.5 7.5C18 4.6 15.4 3 12.2 3 7 3 3.5 6.6 3.5 12s3.5 9 8.7 9c3.4 0 6-1.4 7.3-4"/></svg></a></div></div>
+      <div><h4>Kontakt</h4><ul><li><a href="mailto:flower.thereader@gmail.com">flower.thereader@gmail.com</a></li><li><a href="tel:+48667849367">667 849 367</a></li></ul><div class="soc"><a href="https://www.instagram.com/flower.the.reader/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" class="d"/></svg></a><a href="https://www.tiktok.com/@flower.thereader" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.7 2.3 4.5 5 4.7"/></svg></a><a href="https://www.facebook.com/flower.thereader" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H9v3h2.5V21"/></svg></a><a href="https://www.youtube.com/@flower.thereader" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3v5.4l4.6-2.7z" class="d"/></svg></a><a href="https://www.threads.net/@flower.thereader" target="_blank" rel="noopener" aria-label="Threads"><svg viewBox="0 0 24 24"><path d="M16.8 11.2c-.4-2.4-2-3.6-4.4-3.6-2.6 0-4.3 1.8-4.3 4.4s1.6 4.5 4.2 4.5c2.3 0 3.6-1.4 3.6-3 0-1.9-1.7-2.7-3.6-2.5-1.5.1-2.5.9-2.4 2 .1 1.2 1.3 1.6 2.4 1.5 1.9-.2 2.9-1.7 2.9-4.5"/><path d="M19.5 7.5C18 4.6 15.4 3 12.2 3 7 3 3.5 6.6 3.5 12s3.5 9 8.7 9c3.4 0 6-1.4 7.3-4"/></svg></a></div></div>
     </div>
-    <div class="legal"><span>Karol Wach, ul. Kręta 23, 42-100 Kłobuck</span><span>© 2026 flower</span></div>
+    <div class="legal"><span>Karol Wach, ul. Kręta 23, 42-100 Kłobuck</span><span>flower-device.com</span></div>
   </div>
 </footer>
 
@@ -1411,7 +1405,7 @@ function recalc(){
   var disc=applied?(applied.t==='pct'?400*applied.v/100:applied.v):0;
   document.getElementById('sDisc').hidden=!applied;
   if(applied){document.getElementById('sDiscL').textContent='Rabat'+(applied.t==='pct'?' '+applied.v+'%':'');document.getElementById('sDiscV').textContent='−'+zl(disc);}
-  document.getElementById('sShip').textContent=s==null?'__ zł':zl(s);
+  document.getElementById('sShip').textContent=s==null?'wg przesyłki':zl(s);
   document.getElementById('sTot').textContent=s==null?zl(400-disc)+' + dostawa':zl(400-disc+s);
 }
 [].forEach.call(document.querySelectorAll('input[name=ship]'),function(r){r.addEventListener('change',function(){recalc();gate();});});
@@ -1422,9 +1416,9 @@ document.getElementById('codeBtn').addEventListener('click',function(){
   else{applied=null;m.textContent='Nie znamy tego kodu albo był już użyty. Sprawdź, czy to kod z naszej karteczki.';m.style.color='var(--orp)';}
   recalc();
 });
-var go=document.getElementById('go'),c1=document.getElementById('c1'),c2=document.getElementById('c2'),pm=document.getElementById('pm'),goMsg=document.getElementById('goMsg');
-function gate(){var needPm=document.querySelector('input[name=ship]:checked').value==='inpost';var pmOk=!needPm||/^[A-Z]{3}\d{2,3}[A-Z]{1,2}$/i.test(pm.value.trim());go.disabled=!(c1.checked&&c2.checked&&pmOk);go.textContent=state==='in'?'Przejdź do płatności':'Zamawiam w przedsprzedaży';}
-c1.addEventListener('change',gate);c2.addEventListener('change',gate);pm.addEventListener('input',gate);
+var go=document.getElementById('go'),c2=document.getElementById('c2'),pm=document.getElementById('pm'),goMsg=document.getElementById('goMsg');
+function gate(){var needPm=document.querySelector('input[name=ship]:checked').value==='inpost';var pmOk=!needPm||/^[A-Z]{3}\d{2,3}[A-Z]{1,2}$/i.test(pm.value.trim());go.disabled=!(c2.checked&&pmOk);go.textContent=state==='in'?'Przejdź do płatności':'Zamawiam w przedsprzedaży';}
+c2.addEventListener('change',gate);pm.addEventListener('input',gate);
 go.addEventListener('click',function(){location.hash='dziekujemy';});
 [].forEach.call(document.querySelectorAll('.seg button'),function(b){b.addEventListener('click',function(){
   [].forEach.call(document.querySelectorAll('.seg button'),function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');state=b.dataset.s;
