@@ -154,7 +154,7 @@ body.dark #meadow{visibility:hidden}
 @media (max-width:900px){.gal{position:static}}
 .gal .main{aspect-ratio:16/11;display:grid;place-items:center;background:#fff;border-radius:22px;overflow:hidden}
 .gal .main img{width:100%;height:100%;object-fit:contain;display:block}
-.thumbs{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px;margin-top:10px}
+.thumbs{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px;margin-top:10px}
 .thumbs button{aspect-ratio:16/11;border:0;border-radius:12px;overflow:hidden;background:#fff;padding:0;cursor:pointer;opacity:.6;transition:opacity .2s,box-shadow .2s}
 .thumbs button:hover{opacity:.85}
 .thumbs button[aria-pressed="true"]{opacity:1;box-shadow:0 0 0 2px var(--fg)}
@@ -496,7 +496,7 @@ details.q p+p{margin-top:10px}
         <tr><th scope="row">Po ciemku</th><td class="win">świeci sam, motyw nocny</td><td>potrzebuje lampki albo latarki</td></tr>
         <tr><th scope="row">W pełnym słońcu</th><td class="win">ciemny motyw, mało odblasków</td><td>biała kartka odbija słońce i razi</td></tr>
         <tr><th scope="row">Litery</th><td class="win">zmieniasz krój i wielkość</td><td>takie, jakie wybrał wydawca</td></tr>
-        <tr><th scope="row">Tempo</th><td class="win">50–1000 słów na minutę</td><td>tempo twojego oka</td></tr>
+        <tr><th scope="row">Tempo</th><td class="win">10–1000 słów na minutę</td><td>tempo twojego oka</td></tr>
         <tr><th scope="row">Prąd</th><td>ok. 7 h czytania, potem ładowanie</td><td class="win bwin">nigdy się nie rozładuje</td></tr>
         <tr><th scope="row">Zapach</th><td>żaden</td><td class="win bwin">papier i farba drukarska</td></tr>
         <tr><th scope="row">Cena</th><td class="win">400 zł raz, nieskończone możliwości</td><td>ok. 40–50 zł za każdą</td></tr>
@@ -525,7 +525,7 @@ details.q p+p{margin-top:10px}
         <div><dt>Na czytniku</dt><dd>EPUB, TXT, RSVP</dd></div>
         <div><dt>Przez aplikację</dt><dd>PDF, DOCX, MOBI, AZW, AZW3, ODT, HTML, Markdown</dd></div>
         <div><dt>Tryby</dt><dd>RSVP, przewijanie tekstu</dd></div>
-        <div><dt>Tempo</dt><dd>50–1000 słów na minutę</dd></div>
+        <div><dt>Tempo</dt><dd>10–1000 słów na minutę</dd></div>
         <div><dt>Motywy</dt><dd>Jasny, Nocny i 13 palet: Mocha, Macchiato, Frappé, Latte, Dracula, Nord, Gruvbox, Tokyo, Solarized, Krem, Sepia, Grafit, Las</dd></div>
         <div><dt>Menu</dt><dd>polski, angielski, niemiecki, hiszpański, francuski, rumuński</dd></div>
         <div><dt>Łączność</dt><dd>Wi-Fi 2,4 GHz, Bluetooth 5 LE</dd></div>
@@ -546,10 +546,10 @@ details.q p+p{margin-top:10px}
       <aside aria-label="Działy"><a href="#pytania" data-jump="q-czytanie">Czytanie</a><a href="#pytania" data-jump="q-urzadzenie">Urządzenie</a><a href="#pytania" data-jump="q-zakup">Zakup i dostawa</a><a href="#pytania" data-jump="q-zwroty">Zwroty i reklamacje</a></aside>
       <div>
         <section id="q-czytanie"><h3>Czytanie</h3>
-          <details class="q" open><summary>Czytanie po jednym słowie nie męczy?</summary><p>Pierwsze dwie, trzy minuty są dziwne. Potem przestajesz to zauważać. Oko nie skacze po linijkach, tylko patrzy w jeden punkt, a tempo ustawiasz sam: od 50 do 1000 słów na minutę.</p></details>
+          <details class="q" open><summary>Czytanie po jednym słowie nie męczy?</summary><p>Pierwsze dwie, trzy minuty są dziwne. Potem przestajesz to zauważać. Oko nie skacze po linijkach, tylko patrzy w jeden punkt, a tempo ustawiasz sam: od 10 do 1000 słów na minutę.</p></details>
           <details class="q"><summary>A jeśli wolę zwykły tekst?</summary><p>Przełączasz tryb na przewijanie. Tekst sam jedzie w górę w twoim tempie, a bieżące słowo jest zaznaczone.</p></details>
-          <details class="q"><summary>Jakie książki przeczytam?</summary><p>Na czytniku: EPUB, TXT i RSVP. Aplikacja Flower przerobi też PDF, DOCX, MOBI, AZW, AZW3, ODT, HTML i Markdown. Pliki nie mogą mieć zabezpieczeń DRM.</p></details>
-          <details class="q"><summary>Skąd brać książki?</summary><p>Z plików, które już masz, z Wolnych Lektur, z księgarni sprzedających e-booki bez DRM. Nie mamy własnego sklepu z książkami.</p></details>
+          <details class="q"><summary>Jakie książki przeczytam?</summary><p>Każdą, którą pobierzesz i wgrasz. Na czytniku działają EPUB, TXT i RSVP, a aplikacja Flower zamienia też PDF, DOCX, MOBI, AZW, AZW3, ODT, HTML i Markdown. Jedyny wyjątek to pliki z zabezpieczeniem DRM.</p></details>
+          <details class="q"><summary>Skąd brać książki?</summary><p>Z dowolnego legalnego źródła. Za darmo: Wolne Lektury (polskie klasyki), Project Gutenberg i archive.org, gdzie są książki w domenie publicznej. Za pieniądze: księgarnie z e-bookami, na przykład Empik. Przed zakupem sprawdź w opisie, czy plik ma DRM. Znak wodny nie przeszkadza, DRM tak. Własnego sklepu z książkami nie mamy.</p></details>
         </section>
         <section id="q-urzadzenie"><h3>Urządzenie</h3>
           <details class="q"><summary>Mam iPhone'a. Zadziała?</summary><p>Tak, przez przeglądarkę. Aplikacja na Androida robi więcej, dlatego ją polecamy.</p></details>
@@ -560,11 +560,11 @@ details.q p+p{margin-top:10px}
           <details class="q"><summary>Ile kosztuje dostawa?</summary><p>Paczkomat InPost 16,49 zł, do 5 dni roboczych. Poczta Polska, około 10 dni roboczych. Metodę wybierasz przy zamówieniu. Szczegóły są na stronie <a href="#dostawa">Dostawa i płatności</a>.</p></details>
           <details class="q"><summary>Co, jeśli nie ma go na stanie?</summary><p>Zamawiasz w przedsprzedaży. Składamy twoją sztukę i wysyłamy w ciągu 30 dni od zapłaty. Napiszemy, gdy wyjdzie z warsztatu.</p></details>
           <details class="q"><summary>Jak działa kod z karteczki w pudełku?</summary><p>To nasze podziękowanie za zakup. Kod działa raz, wpisany na stronie albo po zeskanowaniu kodu QR. Możesz go dać komuś, kto też chce wrócić do czytania.</p></details>
-          <details class="q"><summary>Dostanę paragon?</summary><p>Potwierdzenie zakupu przychodzi mailem. Na prośbę wystawimy rachunek.</p></details>
+          <details class="q"><summary>Dostanę paragon?</summary><p>Potwierdzenie zakupu i płatności przychodzi mailem.</p></details>
         </section>
         <section id="q-zwroty"><h3>Zwroty i reklamacje</h3>
           <details class="q"><summary>Mogę oddać?</summary><p>Tak. Masz 14 dni od odebrania paczki i nie musisz podawać powodu. Odsyłasz na swój koszt, my oddajemy pieniądze za czytnik i za najtańszą dostawę. Zobacz <a href="#zwroty">Zwroty i reklamacje</a>.</p></details>
-          <details class="q"><summary>A jeśli coś się zepsuje?</summary><p>Przez 2 lata odpowiadamy za to, że Flower działa tak, jak go opisaliśmy. Napisz do nas, a naprawimy go, wymienimy albo oddamy pieniądze.</p></details>
+          <details class="q"><summary>A jeśli coś się zepsuje?</summary><p>Napisz do nas, opisz, co się dzieje, i dołącz zdjęcie albo krótki film. Przez 2 lata od dostarczenia odpowiadamy za zgodność Flowera z umową, na zasadach z ustawy o prawach konsumenta. Szczegóły są na stronie <a href="#zwroty">Zwroty i reklamacje</a>.</p></details>
         </section>
       </div>
     </div>
@@ -1330,7 +1330,7 @@ var seedsLayer=document.getElementById('seeds'),meadow=document.getElementById('
 })();
 /* ---------- product photos ---------- */
 (function(){
-  var P=[['przod-jasny','Przód, motyw jasny'],['przod-ciemny','Przód, motyw ciemny'],['tryb-nocny','Przód, motyw nocny'],['biblioteka','Biblioteka'],['bok-przyciski','Bok z przyciskami i portem USB-C'],['tyl-bok','Tył z głośnikiem, przyciskami i USB-C'],['tyl','Tył z naklejką'],['w-kieszeni','W kieszeni jeansów']];
+  var P=[['przod-jasny','Przód, motyw jasny'],['przod-ciemny','Przód, motyw ciemny'],['tryb-nocny','Przód, motyw nocny'],['biblioteka','Biblioteka'],['bok-przyciski','Bok z przyciskami i portem USB-C'],['tyl-bok','Tył z głośnikiem, przyciskami i USB-C'],['tyl','Tył z naklejką'],['w-kieszeni','W kieszeni jeansów'],['w-kawiarni','W kawiarni']];
   var thumbs=document.getElementById('thumbs'),main=document.getElementById('gMain');
   P.forEach(function(p,i){var src='obrazy/'+p[0]+'.webp',b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.setAttribute('aria-label',p[1]);
     var im=document.createElement('img');im.src=src;im.alt='';im.loading='lazy';im.decoding='async';b.appendChild(im);
@@ -1412,6 +1412,9 @@ var go=document.getElementById('go'),c2=document.getElementById('c2'),pm=documen
 function gate(){var needPm=document.querySelector('input[name=ship]:checked').value==='inpost';var pmOk=!needPm||/^[A-Z]{3}\d{2,3}[A-Z]{1,2}$/i.test(pm.value.trim());go.disabled=!(c2.checked&&pmOk);go.textContent=state==='in'?'Przejdź do płatności':'Zamawiam w przedsprzedaży';}
 c2.addEventListener('change',gate);pm.addEventListener('input',gate);
 go.addEventListener('click',function(){location.hash='dziekujemy';});
+/* kod z karty w pudełku: flower-device.com/?kod=FLWR-XXXX-XX otwiera zakup z wpisanym kodem */
+(function(){var m=/[?&]kod=([A-Za-z0-9-]{6,24})/.exec(location.search);if(!m)return;
+  document.getElementById('code').value=m[1].toUpperCase();document.getElementById('codeBtn').click();if(location.hash!=='#kup')location.hash='kup';})();
 [].forEach.call(document.querySelectorAll('.seg button'),function(b){b.addEventListener('click',function(){
   [].forEach.call(document.querySelectorAll('.seg button'),function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');state=b.dataset.s;
   var d=document.getElementById('dot'),t=document.getElementById('dotTxt');
