@@ -1332,11 +1332,11 @@ var seedsLayer=document.getElementById('seeds'),meadow=document.getElementById('
 (function(){
   var P=[['przod-jasny','Przód, motyw jasny'],['przod-ciemny','Przód, motyw ciemny'],['tryb-nocny','Przód, motyw nocny'],['biblioteka','Biblioteka'],['bok-przyciski','Bok z przyciskami i portem USB-C'],['tyl-bok','Tył z głośnikiem, przyciskami i USB-C'],['tyl','Tył z naklejką'],['w-kieszeni','W kieszeni jeansów'],['w-kawiarni','W kawiarni']];
   var thumbs=document.getElementById('thumbs'),main=document.getElementById('gMain');
-  P.forEach(function(p,i){var src='obrazy/'+p[0]+'.webp',b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.setAttribute('aria-label',p[1]);
+  P.forEach(function(p,i){var src='obrazy/'+p[0]+'.webp?v=3',b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',i===0?'true':'false');b.setAttribute('aria-label',p[1]);
     var im=document.createElement('img');im.src=src;im.alt='';im.loading='lazy';im.decoding='async';b.appendChild(im);
     b.addEventListener('click',function(){[].forEach.call(thumbs.children,function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');main.src=src;main.alt='flower: '+p[1];});
     thumbs.appendChild(b);});
-  main.src='obrazy/'+P[0][0]+'.webp';main.alt='flower: '+P[0][1];
+  main.src='obrazy/'+P[0][0]+'.webp?v=3';main.alt='flower: '+P[0][1];
 })();
 
 /* ---------- theme picker ---------- */
